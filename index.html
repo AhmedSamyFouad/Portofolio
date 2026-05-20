@@ -1,0 +1,1756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ahmed Samy – Software Test Engineer. Delivering zero-bug software through precision QA, structured test design, and relentless quality advocacy.">
+  <meta property="og:title" content="Ahmed Samy | Software Test Engineer">
+  <meta property="og:description" content="Software QA Engineer specializing in manual testing, defect detection, and quality advocacy.">
+  <meta property="og:type" content="website">
+  <title>Ahmed Samy | Software Test Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #060810;
+  --bg-1: #0c1020;
+  --bg-2: #111827;
+  --bg-3: #1a2235;
+  --border: rgba(255,255,255,0.06);
+  --border-bright: rgba(0,230,180,0.3);
+  --teal: #00e6b4;
+  --teal-dim: rgba(0,230,180,0.15);
+  --teal-glow: rgba(0,230,180,0.08);
+  --violet: #7c6cfc;
+  --violet-dim: rgba(124,108,252,0.15);
+  --rose: #ff6b9d;
+  --amber: #f59e0b;
+  --text-1: #f0f4ff;
+  --text-2: #8898b8;
+  --text-3: #4a5878;
+  --font-display: "Roboto Slab", serif;;
+  --font-body: "Roboto Slab", serif;;
+  --font-mono: "Roboto Slab", serif;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow: 0 20px 60px rgba(0,0,0,0.5);
+  --transition: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text-1);
+  line-height: 1.65;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width:6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--bg-3); border-radius:3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--teal); }
+
+/* ─── PAGE LOADER ─── */
+#loader {
+  position: fixed; inset:0; z-index:9999;
+  background: var(--bg);
+  display:flex; align-items:center; justify-content:center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#loader.hidden { opacity:0; visibility:hidden; pointer-events:none; }
+.loader-inner {
+  display:flex; flex-direction:column; align-items:center; gap:1.5rem;
+}
+.loader-ring {
+  width:60px; height:60px;
+  border:2px solid var(--border);
+  border-top-color: var(--teal);
+  border-radius:50%;
+  animation: spin 0.9s linear infinite;
+}
+.loader-text {
+  font-family: var(--font-mono);
+  font-size:0.75rem; color: var(--teal);
+  letter-spacing:0.15em;
+  animation: pulse-text 1.5s ease infinite;
+}
+@keyframes spin { to { transform:rotate(360deg); } }
+@keyframes pulse-text { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+/* ─── CURSOR GLOW ─── */
+#cursor-glow {
+  position:fixed; pointer-events:none; z-index:9998;
+  width:400px; height:400px;
+  border-radius:50%;
+  background: radial-gradient(circle, rgba(0,230,180,0.04) 0%, transparent 70%);
+  transform:translate(-50%,-50%);
+  transition: transform 0.15s ease;
+  mix-blend-mode: screen;
+}
+
+/* ─── BACK TO TOP ─── */
+#back-top {
+  position:fixed; bottom:2rem; right:2rem; z-index:500;
+  width:44px; height:44px;
+  background: var(--bg-3);
+  border:1px solid var(--border);
+  border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  color: var(--teal);
+  cursor:pointer;
+  opacity:0; transform:translateY(10px);
+  transition: all 0.3s ease;
+  text-decoration:none;
+}
+#back-top.visible { opacity:1; transform:translateY(0); }
+#back-top:hover { background: var(--teal-dim); border-color: var(--border-bright); }
+
+/* ─── FLOATING CONTACT ─── */
+#float-contact {
+  position:fixed; bottom:2rem; left:2rem; z-index:500;
+  display:flex; flex-direction:column; gap:0.5rem;
+  opacity:0; transform:translateX(-10px);
+  transition: all 0.5s ease 0.5s;
+}
+#float-contact.visible { opacity:1; transform:translateX(0); }
+.float-link {
+  width:40px; height:40px;
+  background: var(--bg-3);
+  border:1px solid var(--border);
+  border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  color: var(--text-2);
+  text-decoration:none;
+  font-size:0.9rem;
+  transition: all 0.3s ease;
+  position:relative;
+}
+.float-link:hover { background: var(--teal-dim); color: var(--teal); border-color: var(--border-bright); }
+.float-link::after {
+  content: attr(data-tip);
+  position:absolute; left:calc(100% + 10px); top:50%; transform:translateY(-50%);
+  background: var(--bg-3); border:1px solid var(--border);
+  padding:0.3rem 0.75rem; border-radius:6px;
+  font-size:0.75rem; font-family: var(--font-mono);
+  white-space:nowrap; color: var(--text-2);
+  opacity:0; pointer-events:none;
+  transition: opacity 0.2s ease;
+}
+.float-link:hover::after { opacity:1; }
+
+/* ─── NAVBAR ─── */
+nav {
+  position:fixed; top:0; width:100%; z-index:900;
+  padding:0 2rem;
+  height:64px;
+  display:flex; align-items:center; justify-content:space-between;
+  background: rgba(6,8,16,0.7);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+  transition: background 0.3s ease;
+}
+nav.scrolled { background: rgba(6,8,16,0.92); }
+.nav-logo {
+  font-family: var(--font-display);
+  font-weight:700; font-size:1.1rem;
+  color: var(--text-1);
+  text-decoration:none;
+  display:flex; align-items:center; gap:0.5rem;
+}
+.logo-icon {
+  width:32px; height:32px;
+  background: linear-gradient(135deg, var(--teal), var(--violet));
+  border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.85rem; color:#000;
+}
+.nav-links { display:flex; gap:0; list-style:none; }
+.nav-links a {
+  display:block; padding:0.5rem 1.1rem;
+  font-size:0.85rem; font-weight:500;
+  color: var(--text-2);
+  text-decoration:none;
+  border-radius:6px;
+  transition: color 0.2s, background 0.2s;
+  position:relative;
+}
+.nav-links a::after {
+  content:'';
+  position:absolute; bottom:-1px; left:50%; right:50%;
+  height:2px; background: var(--teal);
+  transition: left 0.3s var(--transition), right 0.3s var(--transition);
+}
+.nav-links a.active, .nav-links a:hover { color: var(--text-1); }
+.nav-links a.active::after { left:1.1rem; right:1.1rem; }
+.nav-cta {
+  background: var(--teal);
+  color:#000 !important;
+  font-weight:600 !important;
+  padding:0.5rem 1.25rem !important;
+  border-radius:8px !important;
+}
+.nav-cta:hover { background: #00ccaa !important; }
+.nav-cta::after { display:none !important; }
+
+.hamburger {
+  display:none; background:none; border:none;
+  color: var(--text-1); cursor:pointer; font-size:1.25rem;
+  width:40px; height:40px;
+  align-items:center; justify-content:center;
+  border-radius:8px; border:1px solid var(--border);
+}
+
+/* Mobile Nav */
+.mobile-nav {
+  position:fixed; inset:0; z-index:850;
+  background: var(--bg-1);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  gap:2rem;
+  transform:translateX(100%);
+  transition: transform 0.4s var(--transition);
+}
+.mobile-nav.open { transform:translateX(0); }
+.mobile-nav a {
+  font-family: var(--font-display);
+  font-size:2rem; font-weight:700;
+  color: var(--text-1); text-decoration:none;
+  transition: color 0.2s;
+}
+.mobile-nav a:hover { color: var(--teal); }
+.mobile-close {
+  position:absolute; top:1.5rem; right:1.5rem;
+  background:none; border:1px solid var(--border);
+  color: var(--text-1); cursor:pointer; font-size:1rem;
+  width:40px; height:40px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+}
+
+/* ─── ANIMATED GRID BG ─── */
+.grid-bg {
+  position:absolute; inset:0; overflow:hidden; pointer-events:none;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 80% at 50% 0%, black 0%, transparent 100%);
+}
+
+/* ─── HERO ─── */
+.hero {
+  min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  position:relative;
+  padding:7rem 2rem 4rem;
+  overflow:hidden;
+}
+.hero-orbs {
+  position:absolute; inset:0; pointer-events:none;
+}
+.orb {
+  position:absolute; border-radius:50%;
+  filter:blur(120px);
+}
+.orb-1 { width:600px; height:600px; background:rgba(0,230,180,0.06); top:-100px; left:-100px; animation: float-1 12s ease-in-out infinite; }
+.orb-2 { width:500px; height:500px; background:rgba(124,108,252,0.06); bottom:-50px; right:-100px; animation: float-2 15s ease-in-out infinite; }
+.orb-3 { width:300px; height:300px; background:rgba(255,107,157,0.04); top:50%; left:50%; transform:translate(-50%,-50%); animation: float-3 10s ease-in-out infinite; }
+
+@keyframes float-1 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(40px,30px)} }
+@keyframes float-2 { 0%,100%{transform:translate(0,0)} 50%{transform:translate(-30px,-40px)} }
+@keyframes float-3 { 0%,100%{transform:translate(-50%,-50%)} 50%{transform:translate(-45%,-55%)} }
+
+.hero-inner {
+  position:relative; z-index:1;
+  max-width:1200px; width:100%;
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:4rem; align-items:center;
+}
+
+.hero-tag {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  background: var(--teal-dim);
+  border:1px solid var(--border-bright);
+  color: var(--teal);
+  padding:0.4rem 1rem; border-radius:50px;
+  font-size:0.78rem; font-weight:600; letter-spacing:0.08em;
+  text-transform:uppercase; margin-bottom:1.5rem;
+}
+.tag-dot { width:6px; height:6px; background:var(--teal); border-radius:50%; animation: pulse-dot 2s ease infinite; }
+@keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(0.8)} }
+
+.hero-h1 {
+  font-family: var(--font-display);
+  font-size:clamp(2.5rem, 5vw, 4rem);
+  font-weight:800; line-height:1.05;
+  letter-spacing:-0.02em;
+  margin-bottom:1.25rem;
+}
+.hero-h1 em {
+  font-style:normal;
+  background: linear-gradient(135deg, var(--teal) 0%, var(--violet) 100%);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+}
+
+.hero-sub {
+  font-size:1.05rem; color: var(--text-2);
+  max-width:480px; margin-bottom:2rem; line-height:1.75;
+}
+
+.hero-metrics {
+  display:flex; gap:2rem; margin-bottom:2.5rem;
+}
+.metric { text-align:left; }
+.metric-val {
+  font-family: var(--font-display);
+  font-size:2rem; font-weight:800;
+  color: var(--teal);
+  display:block; line-height:1;
+}
+.metric-lbl { font-size:0.75rem; color: var(--text-3); text-transform:uppercase; letter-spacing:0.1em; margin-top:0.25rem; }
+
+.hero-actions { display:flex; gap:1rem; flex-wrap:wrap; }
+
+.btn {
+  display:inline-flex; align-items:center; gap:0.6rem;
+  padding:0.8rem 1.6rem;
+  border-radius:10px;
+  font-family: var(--font-body);
+  font-weight:600; font-size:0.9rem;
+  text-decoration:none; cursor:pointer; border:none;
+  transition: all 0.25s var(--transition);
+  position:relative; overflow:hidden;
+}
+.btn::before {
+  content:''; position:absolute; inset:0;
+  background:rgba(255,255,255,0.1);
+  opacity:0; transition: opacity 0.2s;
+}
+.btn:hover::before { opacity:1; }
+
+.btn-primary {
+  background: var(--teal);
+  color:#000;
+  box-shadow: 0 0 0 0 rgba(0,230,180,0.4);
+}
+.btn-primary:hover {
+  transform:translateY(-2px);
+  box-shadow: 0 8px 30px rgba(0,230,180,0.3), 0 0 0 4px rgba(0,230,180,0.1);
+}
+
+.btn-ghost {
+  background:transparent;
+  color: var(--text-1);
+  border:1px solid var(--border);
+}
+.btn-ghost:hover {
+  border-color: var(--border-bright);
+  color: var(--teal);
+  transform:translateY(-2px);
+}
+
+.btn-outline {
+  background:transparent;
+  color: var(--teal);
+  border:1px solid var(--border-bright);
+}
+.btn-outline:hover {
+  background: var(--teal-dim);
+  transform:translateY(-2px);
+}
+
+/* Terminal Window */
+.terminal {
+  background: var(--bg-1);
+  border:1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow:hidden;
+  box-shadow: var(--shadow), 0 0 0 1px rgba(255,255,255,0.03);
+  position:relative;
+}
+.terminal::before {
+  content:'';
+  position:absolute; inset:0;
+  background: linear-gradient(135deg, rgba(0,230,180,0.03) 0%, transparent 60%);
+  pointer-events:none;
+}
+.terminal-bar {
+  background: var(--bg-2);
+  padding:0.8rem 1.2rem;
+  display:flex; align-items:center; gap:0.5rem;
+  border-bottom:1px solid var(--border);
+}
+.tb-dots { display:flex; gap:0.4rem; }
+.tb-dot { width:10px; height:10px; border-radius:50%; }
+.tb-dot.r { background:#ff5f56; }
+.tb-dot.y { background:#febc2e; }
+.tb-dot.g { background:#28c840; }
+.tb-name {
+  margin-left:auto; font-family:var(--font-mono);
+  font-size:0.72rem; color:var(--text-3);
+}
+.terminal-body { padding:1.5rem; }
+.t-line {
+  display:flex; gap:1rem; line-height:1.9;
+  font-family: var(--font-mono); font-size:0.82rem;
+}
+.t-num { color:var(--text-3); min-width:1.5rem; user-select:none; text-align:right; }
+.kw { color:var(--teal); }
+.fn { color:var(--violet); }
+.str { color:var(--rose); }
+.cm { color:var(--text-3); font-style:italic; }
+.vr { color:var(--amber); }
+
+.terminal-status {
+  padding:0.75rem 1.5rem;
+  border-top:1px solid var(--border);
+  display:flex; align-items:center; gap:2rem;
+  font-size:0.75rem; font-family:var(--font-mono);
+}
+.ts-item { display:flex; align-items:center; gap:0.4rem; color:var(--text-3); }
+.ts-dot { width:6px; height:6px; border-radius:50%; }
+.ts-dot.green { background:#28c840; }
+.ts-dot.blue { background:var(--violet); }
+
+/* ─── SECTION BASE ─── */
+.section {
+  padding:7rem 2rem;
+  position:relative;
+}
+.section.alt { background: var(--bg-1); }
+.section-inner { max-width:1200px; margin:0 auto; }
+
+.section-tag {
+  display:inline-flex; align-items:center; gap:0.4rem;
+  background: var(--teal-dim);
+  color: var(--teal);
+  padding:0.3rem 0.85rem; border-radius:50px;
+  font-size:0.72rem; font-weight:600; letter-spacing:0.12em;
+  text-transform:uppercase; margin-bottom:1rem;
+}
+.section-tag i { font-size:0.65rem; }
+
+.section-head {
+  text-align:center; margin-bottom:4rem;
+}
+.section-h2 {
+  font-family: var(--font-display);
+  font-size:clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight:800; letter-spacing:-0.02em;
+  margin-bottom:0.75rem;
+}
+.section-sub { font-size:1rem; color:var(--text-2); max-width:580px; margin:0 auto; }
+
+/* ─── REVEAL ANIMATIONS ─── */
+.reveal {
+  opacity:0; transform:translateY(28px);
+  transition: opacity 0.7s var(--transition), transform 0.7s var(--transition);
+}
+.reveal.in { opacity:1; transform:translateY(0); }
+.reveal-l { opacity:0; transform:translateX(-28px); transition: opacity 0.7s var(--transition), transform 0.7s var(--transition); }
+.reveal-l.in { opacity:1; transform:translateX(0); }
+.reveal-r { opacity:0; transform:translateX(28px); transition: opacity 0.7s var(--transition), transform 0.7s var(--transition); }
+.reveal-r.in { opacity:1; transform:translateX(0); }
+
+/* ─── ABOUT ─── */
+.about-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:4rem; align-items:start;
+}
+.about-text { color:var(--text-2); font-size:1rem; line-height:1.85; }
+.about-text p { margin-bottom:1.5rem; }
+.about-text strong { color:var(--text-1); font-weight:600; }
+
+.journey-line {
+  position:relative; padding-left:2rem;
+}
+.journey-line::before {
+  content:''; position:absolute; left:0; top:0; bottom:0;
+  width:1px; background: linear-gradient(to bottom, var(--teal), transparent);
+}
+.journey-item {
+  position:relative; margin-bottom:2rem;
+}
+.journey-item::before {
+  content:''; position:absolute; left:-2rem; top:0.4rem;
+  width:8px; height:8px; border-radius:50%;
+  background: var(--teal);
+  box-shadow:0 0 12px rgba(0,230,180,0.5);
+  transform:translateX(calc(-50% + 0.5px));
+}
+.j-label { font-size:0.72rem; font-family:var(--font-mono); color:var(--teal); letter-spacing:0.1em; margin-bottom:0.3rem; }
+.j-title { font-family:var(--font-display); font-weight:700; font-size:1.05rem; margin-bottom:0.4rem; }
+.j-desc { font-size:0.88rem; color:var(--text-2); line-height:1.65; }
+
+.values-grid {
+  display:grid; grid-template-columns:1fr 1fr; gap:1rem;
+  margin-top:2rem;
+}
+.value-card {
+  background: var(--bg-2);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  padding:1.25rem;
+  transition: all 0.3s ease;
+  cursor:default;
+}
+.value-card:hover {
+  border-color: var(--border-bright);
+  background: var(--bg-3);
+  transform:translateY(-3px);
+  box-shadow:0 12px 30px rgba(0,230,180,0.08);
+}
+.v-icon {
+  width:38px; height:38px;
+  background: var(--teal-dim);
+  border-radius:9px;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--teal); font-size:1rem; margin-bottom:0.75rem;
+}
+.v-title { font-weight:700; font-size:0.9rem; margin-bottom:0.3rem; }
+.v-desc { font-size:0.82rem; color:var(--text-3); line-height:1.55; }
+
+/* ─── SKILLS ─── */
+.skills-wrap { display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem; }
+.skill-card {
+  background:var(--bg-2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:2rem;
+  transition:all 0.3s ease;
+}
+.skill-card:hover {
+  border-color:var(--border-bright);
+  transform:translateY(-4px);
+  box-shadow:0 20px 50px rgba(0,230,180,0.06);
+}
+.sk-head { display:flex; align-items:center; gap:1rem; margin-bottom:1.5rem; }
+.sk-icon {
+  width:46px; height:46px;
+  background: linear-gradient(135deg, var(--teal-dim), var(--violet-dim));
+  border-radius:12px;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--teal); font-size:1.2rem;
+}
+.sk-title { font-family:var(--font-display); font-weight:700; font-size:1rem; }
+
+.skill-items { list-style:none; display:flex; flex-direction:column; gap:0; }
+.skill-item {
+  display:flex; align-items:center; gap:0.75rem;
+  padding:0.6rem 0;
+  border-bottom:1px solid var(--border);
+  font-size:0.87rem; color:var(--text-2);
+  transition: color 0.2s;
+}
+.skill-item:last-child { border-bottom:none; }
+.skill-item:hover { color:var(--text-1); }
+.skill-item i { color:var(--teal); font-size:0.65rem; flex-shrink:0; }
+
+/* ─── PROJECTS ─── */
+.projects-wrap { display:grid; grid-template-columns:repeat(2, 1fr); gap:2rem; }
+.project-card {
+  background:var(--bg-2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  overflow:hidden;
+  transition:all 0.35s var(--transition);
+  cursor:pointer;
+  position:relative;
+}
+.project-card:hover {
+  border-color:var(--border-bright);
+  transform:translateY(-6px);
+  box-shadow:0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(0,230,180,0.1);
+}
+
+.project-thumb {
+  height:200px;
+  background:var(--bg-1);
+  position:relative; overflow:hidden;
+  display:flex; align-items:center; justify-content:center;
+}
+.project-thumb::before {
+  content:''; position:absolute; inset:0;
+  background: linear-gradient(135deg, rgba(0,230,180,0.05), rgba(124,108,252,0.05));
+}
+.project-thumb-icon { font-size:4rem; color:var(--teal); opacity:0.15; position:relative; z-index:1; }
+.project-thumb-grid {
+  position:absolute; inset:0;
+  background-image:
+    linear-gradient(rgba(0,230,180,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,230,180,0.04) 1px, transparent 1px);
+  background-size:30px 30px;
+}
+.project-overlay {
+  position:absolute; inset:0;
+  background:rgba(6,8,16,0.85);
+  display:flex; align-items:center; justify-content:center;
+  gap:1rem; opacity:0;
+  transition:opacity 0.3s ease;
+}
+.project-card:hover .project-overlay { opacity:1; }
+.overlay-btn {
+  background: var(--teal);
+  color:#000; font-weight:700; font-size:0.82rem;
+  padding:0.6rem 1.2rem; border-radius:8px;
+  border:none; cursor:pointer;
+  transition:transform 0.2s;
+}
+.overlay-btn:hover { transform:scale(1.05); }
+
+.project-body { padding:1.75rem; }
+.p-tags { display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:1rem; }
+.p-tag {
+  background:var(--teal-dim); color:var(--teal);
+  padding:0.2rem 0.65rem; border-radius:4px;
+  font-size:0.72rem; font-weight:600; letter-spacing:0.05em;
+}
+.p-tag.violet { background:var(--violet-dim); color:var(--violet); }
+.project-title { font-family:var(--font-display); font-weight:700; font-size:1.15rem; margin-bottom:0.6rem; }
+.project-desc { font-size:0.88rem; color:var(--text-2); line-height:1.7; margin-bottom:1.25rem; }
+.project-metrics { display:flex; gap:1.5rem; padding-top:1.25rem; border-top:1px solid var(--border); }
+.pm { text-align:center; }
+.pm-val { font-family:var(--font-display); font-weight:800; font-size:1.4rem; color:var(--teal); }
+.pm-lbl { font-size:0.7rem; color:var(--text-3); text-transform:uppercase; letter-spacing:0.08em; }
+
+/* Modal */
+.modal-overlay {
+  position:fixed; inset:0; z-index:1000;
+  background:rgba(0,0,0,0.7);
+  backdrop-filter:blur(8px);
+  display:flex; align-items:center; justify-content:center;
+  padding:2rem;
+  opacity:0; visibility:hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.modal-overlay.open { opacity:1; visibility:visible; }
+.modal {
+  background:var(--bg-1);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  width:100%; max-width:680px;
+  max-height:90vh; overflow-y:auto;
+  transform:scale(0.95) translateY(20px);
+  transition: transform 0.3s var(--transition);
+}
+.modal-overlay.open .modal { transform:scale(1) translateY(0); }
+.modal-header {
+  padding:1.75rem 2rem;
+  border-bottom:1px solid var(--border);
+  display:flex; align-items:start; justify-content:space-between; gap:1rem;
+}
+.modal-close {
+  background:var(--bg-3); border:1px solid var(--border);
+  color:var(--text-2); cursor:pointer;
+  width:36px; height:36px; border-radius:8px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.9rem; flex-shrink:0;
+  transition:all 0.2s;
+}
+.modal-close:hover { color:var(--text-1); border-color:var(--border-bright); }
+.modal-body { padding:2rem; }
+.modal-section-title { font-family:var(--font-display); font-weight:700; font-size:0.85rem; color:var(--teal); text-transform:uppercase; letter-spacing:0.12em; margin-bottom:1rem; }
+.highlight-list { list-style:none; display:flex; flex-direction:column; gap:0.65rem; margin-bottom:1.75rem; }
+.highlight-list li { display:flex; align-items:start; gap:0.75rem; font-size:0.9rem; color:var(--text-2); }
+.highlight-list li i { color:var(--teal); margin-top:0.3rem; font-size:0.7rem; flex-shrink:0; }
+
+/* ─── TOOLS ─── */
+.tools-filter { display:flex; gap:0.5rem; flex-wrap:wrap; justify-content:center; margin-bottom:2.5rem; }
+.filter-btn {
+  background:var(--bg-2); border:1px solid var(--border);
+  color:var(--text-2); font-size:0.82rem; font-weight:500;
+  padding:0.45rem 1rem; border-radius:8px;
+  cursor:pointer; transition:all 0.2s;
+}
+.filter-btn.active, .filter-btn:hover {
+  background:var(--teal-dim); color:var(--teal); border-color:var(--border-bright);
+}
+
+.tools-grid {
+  display:grid; grid-template-columns:repeat(4, 1fr); gap:1.25rem;
+}
+.tool-card {
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:var(--radius); padding:1.5rem 1rem;
+  text-align:center; cursor:pointer;
+  transition:all 0.3s var(--transition);
+}
+.tool-card:hover {
+  border-color:var(--border-bright); transform:translateY(-4px);
+  box-shadow:0 15px 40px rgba(0,230,180,0.08);
+}
+.tool-icon {
+  width:52px; height:52px; margin:0 auto 0.9rem;
+  background:linear-gradient(135deg, var(--teal-dim), var(--violet-dim));
+  border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--teal); font-size:1.4rem;
+  transition:transform 0.3s;
+}
+.tool-card:hover .tool-icon { transform:scale(1.1) rotate(-5deg); }
+.tool-name { font-weight:700; font-size:0.9rem; margin-bottom:0.2rem; }
+.tool-cat { font-size:0.75rem; color:var(--text-3); }
+.tool-card[data-hide] { display:none; }
+
+/* ─── QA PROCESS ─── */
+.qa-process {
+  display:grid; grid-template-columns:repeat(5, 1fr);
+  gap:0; position:relative;
+}
+.qa-process::before {
+  content:''; position:absolute;
+  top:2.5rem; left:10%; right:10%;
+  height:1px; background:linear-gradient(90deg, transparent, var(--teal), transparent);
+}
+.qa-step {
+  display:flex; flex-direction:column; align-items:center; text-align:center;
+  padding:0 1rem;
+  position:relative; z-index:1;
+}
+.qa-num {
+  width:50px; height:50px;
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-mono); font-size:0.9rem; font-weight:600; color:var(--teal);
+  margin-bottom:1rem;
+  transition:all 0.3s ease;
+}
+.qa-step:hover .qa-num {
+  background:var(--teal-dim); border-color:var(--border-bright);
+  box-shadow:0 0 20px rgba(0,230,180,0.2);
+}
+.qa-label { font-weight:700; font-size:0.88rem; margin-bottom:0.4rem; }
+.qa-desc { font-size:0.78rem; color:var(--text-3); line-height:1.5; }
+
+/* ─── STATS ─── */
+.stats-wrap {
+  background:var(--bg-2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:3rem;
+  display:grid; grid-template-columns:repeat(4, 1fr);
+  gap:2rem; text-align:center;
+  position:relative; overflow:hidden;
+}
+.stats-wrap::before {
+  content:''; position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(0,230,180,0.03) 0%, transparent 60%);
+  pointer-events:none;
+}
+.stat-block { position:relative; }
+.stat-block:not(:last-child)::after {
+  content:''; position:absolute; right:0; top:50%; transform:translateY(-50%);
+  width:1px; height:50%; background:var(--border);
+}
+.stat-val {
+  font-family:var(--font-display); font-size:3rem; font-weight:800;
+  color:var(--teal); display:block; line-height:1;
+  margin-bottom:0.5rem;
+}
+.stat-desc { font-size:0.88rem; color:var(--text-2); }
+.stat-small { font-size:0.72rem; color:var(--text-3); margin-top:0.25rem; }
+
+/* ─── TEST CASES ─── */
+.tc-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:2rem; }
+.tc-card {
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:var(--radius-lg); overflow:hidden;
+  transition:all 0.3s ease;
+}
+.tc-card:hover { border-color:var(--border-bright); }
+
+.tc-header {
+  background:var(--bg-3); padding:1.5rem;
+  border-bottom:1px solid var(--border);
+}
+.tc-id {
+  display:inline-block;
+  background:var(--teal-dim); color:var(--teal);
+  padding:0.2rem 0.75rem; border-radius:4px;
+  font-family:var(--font-mono); font-size:0.75rem; font-weight:600;
+  margin-bottom:0.6rem;
+}
+.tc-title { font-family:var(--font-display); font-weight:700; font-size:1.05rem; margin-bottom:0.75rem; }
+.tc-meta { display:flex; gap:1rem; flex-wrap:wrap; }
+.tc-badge {
+  display:flex; align-items:center; gap:0.35rem;
+  font-size:0.75rem; color:var(--text-3);
+}
+.tc-badge i { font-size:0.65rem; color:var(--teal); }
+.pass-badge {
+  background:rgba(40,200,64,0.1); color:#28c840;
+  border:1px solid rgba(40,200,64,0.2);
+  padding:0.15rem 0.6rem; border-radius:4px;
+  font-size:0.72rem; font-weight:600;
+}
+
+.tc-body { padding:1.5rem; }
+.tc-objective { font-size:0.9rem; color:var(--text-2); line-height:1.7; margin-bottom:1.25rem; padding-bottom:1.25rem; border-bottom:1px solid var(--border); }
+
+.tc-steps { list-style:none; }
+.tc-step {
+  display:flex; gap:1rem; padding:0.7rem 0;
+  border-bottom:1px solid var(--border);
+}
+.tc-step:last-child { border-bottom:none; }
+.step-n {
+  width:26px; height:26px; flex-shrink:0;
+  background:var(--teal-dim); color:var(--teal);
+  border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.78rem; font-weight:700;
+}
+.step-txt strong { font-size:0.88rem; display:block; margin-bottom:0.2rem; }
+.step-txt span { font-size:0.82rem; color:var(--text-3); line-height:1.5; }
+
+.tc-result {
+  margin-top:1.25rem; padding:1rem;
+  background:rgba(0,230,180,0.04); border:1px solid rgba(0,230,180,0.15);
+  border-radius:8px;
+}
+.tc-result-lbl { font-size:0.72rem; font-weight:700; color:var(--teal); text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.4rem; }
+.tc-result-txt { font-size:0.88rem; color:var(--text-2); line-height:1.6; }
+
+/* Accordion for expand */
+.tc-expand-btn {
+  width:100%; background:none; border:none;
+  color:var(--text-3); font-size:0.8rem; font-family:var(--font-body);
+  padding:0.75rem 1.5rem;
+  display:flex; align-items:center; justify-content:center; gap:0.5rem;
+  cursor:pointer; border-top:1px solid var(--border);
+  transition:color 0.2s;
+}
+.tc-expand-btn:hover { color:var(--teal); }
+.tc-hidden { display:none; }
+
+/* ─── BUG REPORTS ─── */
+.bugs-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:1.25rem; }
+.bug-card {
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:var(--radius); padding:1.5rem;
+  transition:all 0.3s ease;
+  cursor:default;
+}
+.bug-card:hover { border-color:var(--border-bright); transform:translateY(-3px); }
+.bug-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:0.85rem; }
+.bug-id { font-family:var(--font-mono); font-size:0.72rem; color:var(--text-3); }
+.bug-sev {
+  font-size:0.7rem; font-weight:700; letter-spacing:0.08em;
+  padding:0.2rem 0.6rem; border-radius:4px;
+}
+.sev-critical { background:rgba(255,90,90,0.15); color:#ff5a5a; }
+.sev-high { background:rgba(245,158,11,0.15); color:#f59e0b; }
+.sev-medium { background:rgba(124,108,252,0.15); color:var(--violet); }
+.bug-title { font-weight:600; font-size:0.9rem; margin-bottom:0.5rem; }
+.bug-desc { font-size:0.82rem; color:var(--text-3); line-height:1.55; margin-bottom:1rem; }
+.bug-footer { display:flex; gap:0.5rem; flex-wrap:wrap; }
+.bug-tag { font-size:0.7rem; background:var(--bg-3); color:var(--text-3); padding:0.2rem 0.55rem; border-radius:4px; }
+
+/* ─── CERTS ─── */
+.certs-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem; }
+.cert-card {
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:2rem;
+  text-align:center; transition:all 0.3s ease;
+}
+.cert-card:hover { border-color:var(--border-bright); transform:translateY(-4px); }
+.cert-icon {
+  width:60px; height:60px; margin:0 auto 1.25rem;
+  background:linear-gradient(135deg, var(--teal-dim), var(--violet-dim));
+  border-radius:16px; display:flex; align-items:center; justify-content:center;
+  font-size:1.6rem; color:var(--teal);
+}
+.cert-name { font-family:var(--font-display); font-weight:700; font-size:1rem; margin-bottom:0.4rem; }
+.cert-org { font-size:0.82rem; color:var(--text-3); margin-bottom:0.75rem; }
+.cert-status {
+  display:inline-flex; align-items:center; gap:0.4rem;
+  font-size:0.75rem; font-weight:600;
+  padding:0.25rem 0.75rem; border-radius:50px;
+}
+.status-active { background:rgba(0,230,180,0.1); color:var(--teal); }
+.status-progress { background:rgba(245,158,11,0.1); color:#f59e0b; }
+
+/* ─── CONTACT ─── */
+.contact-grid { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start; }
+.contact-links { display:flex; flex-direction:column; gap:1rem; }
+.contact-link {
+  display:flex; align-items:center; gap:1.25rem;
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:var(--radius); padding:1.25rem 1.5rem;
+  text-decoration:none; color:inherit;
+  transition:all 0.3s var(--transition);
+  group:true;
+}
+.contact-link:hover {
+  border-color:var(--border-bright); transform:translateX(6px);
+  box-shadow:0 10px 30px rgba(0,230,180,0.06);
+}
+.cl-icon {
+  width:44px; height:44px; flex-shrink:0;
+  background:var(--teal-dim); border-radius:10px;
+  display:flex; align-items:center; justify-content:center;
+  color:var(--teal); font-size:1.1rem;
+  transition:transform 0.3s;
+}
+.contact-link:hover .cl-icon { transform:scale(1.1); }
+.cl-title { font-weight:600; font-size:0.9rem; margin-bottom:0.2rem; }
+.cl-val { font-size:0.82rem; color:var(--text-3); font-family:var(--font-mono); }
+
+.contact-panel {
+  background:var(--bg-2); border:1px solid var(--border);
+  border-radius:var(--radius-lg); padding:2.5rem;
+  text-align:center;
+}
+.avail-icon { font-size:4rem; color:var(--teal); opacity:0.12; margin-bottom:1.5rem; }
+.avail-title { font-family:var(--font-display); font-weight:800; font-size:1.5rem; margin-bottom:0.75rem; }
+.avail-text { color:var(--text-2); font-size:0.93rem; margin-bottom:1.5rem; line-height:1.7; }
+.avail-badge {
+  display:inline-flex; align-items:center; gap:0.5rem;
+  background:var(--teal-dim); color:var(--teal);
+  padding:0.5rem 1.25rem; border-radius:50px;
+  font-size:0.82rem; font-weight:600;
+  margin-bottom:1.75rem;
+}
+.avail-dot { width:6px; height:6px; background:var(--teal); border-radius:50%; animation:pulse-dot 2s infinite; }
+
+/* ─── FOOTER ─── */
+footer {
+  border-top:1px solid var(--border);
+  padding:2.5rem 2rem;
+  background:var(--bg-1);
+}
+.footer-inner {
+  max-width:1200px; margin:0 auto;
+  display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:1rem;
+}
+.footer-brand { font-family:var(--font-display); font-weight:700; color:var(--text-1); }
+.footer-links { display:flex; gap:1.5rem; }
+.footer-links a { font-size:0.85rem; color:var(--text-3); text-decoration:none; transition:color 0.2s; }
+.footer-links a:hover { color:var(--teal); }
+.footer-note { font-size:0.8rem; color:var(--text-3); }
+
+/* ─── DIVIDER ─── */
+.section-divider {
+  height:1px;
+  background:linear-gradient(90deg, transparent, var(--border), transparent);
+}
+
+/* ─── RESPONSIVE ─── */
+@media (max-width:1100px) {
+  .skills-wrap { grid-template-columns:repeat(2, 1fr); }
+  .tools-grid { grid-template-columns:repeat(3, 1fr); }
+  .qa-process { grid-template-columns:repeat(3, 1fr); gap:2rem; }
+  .qa-process::before { display:none; }
+  .stats-wrap { grid-template-columns:repeat(2, 1fr); }
+  .stat-block::after { display:none; }
+  .certs-grid { grid-template-columns:repeat(2, 1fr); }
+}
+
+@media (max-width:900px) {
+  .hero-inner, .about-grid, .contact-grid { grid-template-columns:1fr; gap:3rem; }
+  .hero-visual { order:-1; }
+  .projects-wrap, .tc-grid { grid-template-columns:1fr; }
+  .nav-links, .nav-cta { display:none; }
+  .hamburger { display:flex; }
+  .bugs-grid { grid-template-columns:repeat(2, 1fr); }
+}
+
+@media (max-width:640px) {
+  .skills-wrap, .tools-grid, .bugs-grid, .certs-grid { grid-template-columns:1fr; }
+  .qa-process { grid-template-columns:1fr; }
+  .stats-wrap { grid-template-columns:1fr; text-align:left; }
+  .section { padding:5rem 1.25rem; }
+  .hero-metrics { gap:1.25rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- PAGE LOADER -->
+<div id="loader">
+  <div class="loader-inner">
+    <div class="loader-ring"></div>
+    <div class="loader-text">INITIALIZING QA ENVIRONMENT…</div>
+  </div>
+</div>
+
+<!-- CURSOR GLOW -->
+<div id="cursor-glow"></div>
+
+<!-- BACK TO TOP -->
+<a href="#" id="back-top" aria-label="Back to top"><i class="fas fa-arrow-up"></i></a>
+
+<!-- FLOATING CONTACTS -->
+<div id="float-contact">
+  <a href="mailto:ahmedsamyfouad615@gmail.com" class="float-link" data-tip="Email Me"><i class="fas fa-envelope"></i></a>
+  <a href="https://www.linkedin.com/in/ahmed-samy-b88617405" target="_blank" class="float-link" data-tip="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+  <a href="https://github.com/ahmeddsamy" target="_blank" class="float-link" data-tip="GitHub"><i class="fab fa-github"></i></a>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a href="#" class="nav-logo">
+    <div class="logo-icon"><i class="fas fa-bug"></i></div>
+    Ahmed Samy
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#tools">Tools</a></li>
+    <li><a href="#test-cases">Test Cases</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn nav-cta">Hire Me</a>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><i class="fas fa-bars"></i></button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
+  <a href="#about" class="mobile-link">About</a>
+  <a href="#skills" class="mobile-link">Skills</a>
+  <a href="#projects" class="mobile-link">Projects</a>
+  <a href="#tools" class="mobile-link">Tools</a>
+  <a href="#test-cases" class="mobile-link">Test Cases</a>
+  <a href="#contact" class="mobile-link">Contact</a>
+</div>
+
+<!-- PROJECT MODAL -->
+<div class="modal-overlay" id="projectModal">
+  <div class="modal" id="modalContent">
+    <div class="modal-header">
+      <div>
+        <div class="p-tags" id="modal-tags"></div>
+        <div id="modal-title" style="font-family:var(--font-display);font-weight:800;font-size:1.4rem;"></div>
+      </div>
+      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body" id="modal-body"></div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ HERO ═══════════════════════════════ -->
+<section class="hero" id="home">
+  <div class="grid-bg"></div>
+  <div class="hero-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-tag"><div class="tag-dot"></div> Available for Opportunities</div>
+      <h1 class="hero-h1">Software Test<br><em>Engineer</em></h1>
+      <p class="hero-sub">Delivering reliable software through structured testing, early defect detection, and continuous quality assurance. Zero escaped bugs is the mission.</p>
+      <div class="hero-metrics">
+        <div class="metric">
+          <span class="metric-val counter" data-target="40">0</span>
+          <div class="metric-lbl">Test Cases Written</div>
+        </div>
+        <div class="metric">
+          <span class="metric-val counter" data-target="15">0</span>
+          <div class="metric-lbl">Bugs Reported</div>
+        </div>
+        <div class="metric">
+          <span class="metric-val counter" data-target="2">0</span>
+          <div class="metric-lbl">Projects Delivered</div>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Get In Touch</a>
+        <a href="#projects" class="btn btn-ghost"><i class="fas fa-folder-open"></i> View Projects</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="terminal">
+        <div class="terminal-bar">
+          <div class="tb-dots">
+            <div class="tb-dot r"></div>
+            <div class="tb-dot y"></div>
+            <div class="tb-dot g"></div>
+          </div>
+          <div class="tb-name">test_engineer.py</div>
+        </div>
+        <div class="terminal-body">
+          <div class="t-line"><span class="t-num">1</span><span><span class="kw">class</span> <span class="fn">QualityEngineer</span>:</span></div>
+          <div class="t-line"><span class="t-num">2</span><span>    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="vr">self</span>):</span></div>
+          <div class="t-line"><span class="t-num">3</span><span>        <span class="vr">self</span>.name = <span class="str">"Ahmed Samy"</span></span></div>
+          <div class="t-line"><span class="t-num">4</span><span>        <span class="vr">self</span>.mission = <span class="str">"Zero escaped bugs"</span></span></div>
+          <div class="t-line"><span class="t-num">5</span><span>        <span class="vr">self</span>.approach = <span class="str">"Precision & Ownership"</span></span></div>
+          <div class="t-line"><span class="t-num">6</span><span></span></div>
+          <div class="t-line"><span class="t-num">7</span><span>    <span class="kw">def</span> <span class="fn">test</span>(<span class="vr">self</span>, <span class="vr">feature</span>):</span></div>
+          <div class="t-line"><span class="t-num">8</span><span>        <span class="cm"># Explore → Document → Validate</span></span></div>
+          <div class="t-line"><span class="t-num">9</span><span>        <span class="vr">result</span> = <span class="vr">self</span>.<span class="fn">run_all_tests</span>(<span class="vr">feature</span>)</span></div>
+          <div class="t-line"><span class="t-num">10</span><span>        <span class="kw">return</span> <span class="vr">result</span>.quality == <span class="str">"shippable"</span></span></div>
+        </div>
+        <div class="terminal-status">
+          <div class="ts-item"><div class="ts-dot green"></div> 40 tests passed</div>
+          <div class="ts-item"><div class="ts-dot blue"></div> 0 failures</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════ ABOUT ═══════════════════════════════ -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-tag"><i class="fas fa-user"></i> About Me</div>
+      <h2 class="section-h2">Software Quality Advocate</h2>
+      <p class="section-sub">Dedicated to ensuring software quality and delivering exceptional user experiences through meticulous testing.</p>
+    </div>
+    <div class="about-grid">
+      <div class="reveal-l">
+        <div class="about-text">
+          <p>Ahmed Samy is a dedicated and detail-oriented Software Tester with a genuine passion for ensuring software quality and delivering exceptional user experiences. His professional mission: <strong>identify defects early, resolve them efficiently</strong>, and contribute to the development of robust, reliable applications.</p>
+          <p>He combines <strong>sharp analytical thinking</strong> with a meticulous eye for detail, enabling him to uncover even the most subtle potential issues and rigorously validate software functionality against business requirements. Ahmed doesn't just find bugs — he understands the user's perspective and advocates for quality at every stage.</p>
+          <p>His approach to testing is holistic: from reading requirements and crafting precise test cases, to executing tests, reporting defects with clarity, and <strong>collaborating closely with developers</strong> to ensure timely resolution.</p>
+        </div>
+        <div class="values-grid">
+          <div class="value-card"><div class="v-icon"><i class="fas fa-crosshairs"></i></div><div class="v-title">Precision</div><div class="v-desc">Every test executed with exactness and documented with clarity.</div></div>
+          <div class="value-card"><div class="v-icon"><i class="fas fa-shield-alt"></i></div><div class="v-title">Ownership</div><div class="v-desc">Full responsibility for quality outcomes across every project.</div></div>
+          <div class="value-card"><div class="v-icon"><i class="fas fa-users"></i></div><div class="v-title">Collaboration</div><div class="v-desc">Works hand-in-hand with devs and product owners to ship better software.</div></div>
+          <div class="value-card"><div class="v-icon"><i class="fas fa-chart-line"></i></div><div class="v-title">Growth</div><div class="v-desc">Constantly expanding skills in automation, tools, and best practices.</div></div>
+        </div>
+      </div>
+      <div class="reveal-r">
+        <div style="margin-bottom:1.5rem;">
+          <div class="section-tag" style="margin-bottom:1rem;"><i class="fas fa-road"></i> Career Journey</div>
+        </div>
+        <div class="journey-line">
+          <div class="journey-item">
+            <div class="j-label">Current · 2024–Present</div>
+            <div class="j-title">Software Test Engineer</div>
+            <div class="j-desc">Specializing in manual testing, test case design, defect tracking, and cross-functional QA collaboration. Delivering zero-defect releases across web and mobile platforms.</div>
+          </div>
+          <div class="journey-item">
+            <div class="j-label">Training · 2023–2024</div>
+            <div class="j-title">QA Bootcamp & Certification Prep</div>
+            <div class="j-desc">Intensive training covering ISTQB fundamentals, Agile methodologies, test design techniques, and industry-standard tools like Jira, TestRail, and Postman.</div>
+          </div>
+          <div class="journey-item">
+            <div class="j-label">Foundation · 2022–2023</div>
+            <div class="j-title">Computer Science Studies</div>
+            <div class="j-desc">Built strong foundations in software engineering principles, programming logic, and systems thinking — the analytical backbone behind every QA decision.</div>
+          </div>
+          <div class="journey-item">
+            <div class="j-label">Milestone</div>
+            <div class="j-title">First QA Project Delivery</div>
+            <div class="j-desc">Successfully delivered comprehensive test coverage for an e-commerce platform, uncovering 15+ critical defects before production deployment.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════ SKILLS ═══════════════════════════════ -->
+<section class="section alt" id="skills">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-tag"><i class="fas fa-layer-group"></i> Expertise</div>
+      <h2 class="section-h2">Technical Skills & Testing Expertise</h2>
+      <p class="section-sub">Comprehensive skill set spanning the full breadth of modern software quality assurance.</p>
+    </div>
+    <div class="skills-wrap">
+      <div class="skill-card reveal">
+        <div class="sk-head"><div class="sk-icon"><i class="fas fa-vial"></i></div><div class="sk-title">Testing Methodologies</div></div>
+        <ul class="skill-items">
+          <li class="skill-item"><i class="fas fa-circle"></i> Manual Testing — end-to-end functional verification</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Exploratory Testing — uncovering edge cases</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Regression Testing — ensuring existing functionality</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Smoke & Sanity Testing — rapid build validation</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Usability Testing — UX from user perspective</li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="sk-head"><div class="sk-icon"><i class="fas fa-sitemap"></i></div><div class="sk-title">Test Design & Reporting</div></div>
+        <ul class="skill-items">
+          <li class="skill-item"><i class="fas fa-circle"></i> Test Case Design — structured, reusable, traceable</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Test Scenarios — coverage-oriented mapping</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Bug Reporting — clear, reproducible, documented</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Defect Tracking — full lifecycle management</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Test Plans — scope, risk, resource planning</li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
+        <div class="sk-head"><div class="sk-icon"><i class="fas fa-sync-alt"></i></div><div class="sk-title">Agile & Collaboration</div></div>
+        <ul class="skill-items">
+          <li class="skill-item"><i class="fas fa-circle"></i> Sprint planning & stand-up participation</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Agile cycles & iterative delivery</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Cross-functional team collaboration</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Adaptable test scope across sprints</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Clear defect reporting for dev teams</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════ QA PROCESS ═══════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-tag"><i class="fas fa-route"></i> Workflow</div>
+      <h2 class="section-h2">QA Process Workflow</h2>
+      <p class="section-sub">A structured, repeatable process that delivers consistency and confidence across every release.</p>
+    </div>
+    <div class="qa-process reveal">
+      <div class="qa-step"><div class="qa-num">01</div><div class="qa-label">Requirement Review</div><div class="qa-desc">Analyze specs & identify ambiguities before any test is written</div></div>
+      <div class="qa-step"><div class="qa-num">02</div><div class="qa-label">Test Planning</div><div class="qa-desc">Define scope, strategy, risk areas, and resource allocation</div></div>
+      <div class="qa-step"><div class="qa-num">03</div><div class="qa-label">Test Design</div><div class="qa-desc">Create precise, traceable test cases and scenarios</div></div>
+      <div class="qa-step"><div class="qa-num">04</div><div class="qa-label">Execution</div><div class="qa-desc">Execute tests, log results, and report defects with detail</div></div>
+      <div class="qa-step"><div class="qa-num">05</div><div class="qa-label">Sign-off</div><div class="qa-desc">Regression pass, quality gate approval, and release readiness</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════ PROJECTS ═══════════════════════════════ -->
+<section class="section alt" id="projects">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-tag"><i class="fas fa-folder-open"></i> Portfolio</div>
+      <h2 class="section-h2">Featured Projects</h2>
+      <p class="section-sub">QA contributions across diverse software domains, reflecting commitment to thoroughness and documentation rigor.</p>
+    </div>
+    <div class="projects-wrap">
+
+      <div class="project-card reveal" data-project="ecommerce">
+        <div class="project-thumb">
+          <div class="project-thumb-grid"></div>
+          <i class="fas fa-shopping-cart project-thumb-icon"></i>
+          <div class="project-overlay">
+            <button class="overlay-btn" onclick="openModal('ecommerce')">View Details</button>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="p-tags">
+            <span class="p-tag">Web Testing</span>
+            <span class="p-tag">E-Commerce</span>
+            <span class="p-tag violet">Manual QA</span>
+          </div>
+          <div class="project-title">E-Commerce Platform Testing</div>
+          <div class="project-desc">Comprehensive manual testing for a newly developed e-commerce website, covering the full user journey from browsing to checkout. Cross-browser and cross-device validated.</div>
+          <div class="project-metrics">
+            <div class="pm"><div class="pm-val">25+</div><div class="pm-lbl">Test Cases</div></div>
+            <div class="pm"><div class="pm-val">9</div><div class="pm-lbl">Bugs Found</div></div>
+            <div class="pm"><div class="pm-val">4</div><div class="pm-lbl">Browsers</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-project="mobile">
+        <div class="project-thumb">
+          <div class="project-thumb-grid"></div>
+          <i class="fas fa-mobile-alt project-thumb-icon"></i>
+          <div class="project-overlay">
+            <button class="overlay-btn" onclick="openModal('mobile')">View Details</button>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="p-tags">
+            <span class="p-tag">Mobile QA</span>
+            <span class="p-tag">Android & iOS</span>
+            <span class="p-tag violet">API Testing</span>
+          </div>
+          <div class="project-title">Mobile Application QA</div>
+          <div class="project-desc">Thorough functional and usability testing on a consumer-facing mobile application. Covered gesture interactions, offline behavior, API validation, and memory stability.</div>
+          <div class="project-metrics">
+            <div class="pm"><div class="pm-val">18+</div><div class="pm-lbl">Test Cases</div></div>
+            <div class="pm"><div class="pm-val">6</div><div class="pm-lbl">Bugs Found</div></div>
+            <div class="pm"><div class="pm-val">2</div><div class="pm-lbl">Platforms</div></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════ TOOLS ═══════════════════════════════ -->
+<section class="section" id="tools">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-tag"><i class="fas fa-wrench"></i> Toolkit</div>
+      <h2 class="section-h2">Tools & Technologies</h2>
+      <p class="section-sub">Industry-standard toolkit covering the full QA workflow from planning to automation foundations.</p>
+    </div>
+
+    <div class="tools-filter reveal">
+      <button class="filter-btn active" data-filter="all">All Tools</button>
+      <button class="filter-btn" data-filter="tracking">Tracking</button>
+      <button class="filter-btn" data-filter="testing">Testing</button>
+      <button class="filter-btn" data-filter="dev">Dev</button>
+    </div>
+
+    <div class="tools-grid">
+      <div class="tool-card reveal" data-cat="tracking"><div class="tool-icon"><i class="fab fa-jira"></i></div><div class="tool-name">Jira</div><div class="tool-cat">Bug & Test Tracking</div></div>
+      <div class="tool-card reveal" data-cat="tracking"><div class="tool-icon"><i class="fas fa-book"></i></div><div class="tool-name">Confluence</div><div class="tool-cat">Documentation</div></div>
+      <div class="tool-card reveal" data-cat="tracking"><div class="tool-icon"><i class="fas fa-tasks"></i></div><div class="tool-name">TestRail</div><div class="tool-cat">Test Management</div></div>
+      <div class="tool-card reveal" data-cat="tracking"><div class="tool-icon"><i class="fas fa-bug"></i></div><div class="tool-name">Bugzilla</div><div class="tool-cat">Defect Logging</div></div>
+      <div class="tool-card reveal" data-cat="testing"><div class="tool-icon"><i class="fab fa-chrome"></i></div><div class="tool-name">Selenium</div><div class="tool-cat">Automation Basics</div></div>
+      <div class="tool-card reveal" data-cat="testing"><div class="tool-icon"><i class="fas fa-rocket"></i></div><div class="tool-name">Postman</div><div class="tool-cat">API Testing</div></div>
+      <div class="tool-card reveal" data-cat="dev"><div class="tool-icon"><i class="fas fa-code"></i></div><div class="tool-name">DevTools</div><div class="tool-cat">Network & Console</div></div>
+      <div class="tool-card reveal" data-cat="dev"><div class="tool-icon"><i class="fab fa-git-alt"></i></div><div class="tool-name">Git</div><div class="tool-cat">Version Control</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════ STATS ═══════════════════════════════ -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="stats-wrap reveal">
+      <div class="stat-block">
+        <span class="stat-val counter" data-target="2">0</span>
+        <div class="stat-desc">Projects Delivered</div>
+        <div class="stat-small">Web & Mobile Platforms</div>
+      </div>
+      <div class="stat-block">
+        <span class="stat-val counter" data-target="5">0</span>
+        <div class="stat-desc">Testing Types Practiced</div>
+        <div class="stat-small">Manual to API Testing</div>
+      </div>
+      <div class="stat-block">
+        <span class="stat-val counter" data-target="10">0</span>
+        <div class="stat-desc">Tools Mastered</div>
+        <div class="stat-small">Jira, TestRail, Postman & More</div>
+      </div>
+      <div class="stat-block">
+        <span class="stat-val">0</span>
+        <div class="stat-desc">Tolerance for Escaped Bugs</div>
+        <div class="stat-small">Catching Defects Early</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════ TEST CASES ═══════════════════════════════ -->
+<section class="section" id="test-cases">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-tag"><i class="fas fa-file-code"></i> Documentation</div>
+      <h2 class="section-h2">Test Case Samples</h2>
+      <p class="section-sub">Structured, clear, and reproducible test documentation ensuring consistent execution and regression coverage.</p>
+    </div>
+    <div class="tc-grid">
+
+      <div class="tc-card reveal">
+        <div class="tc-header">
+          <div class="tc-id">TC_LOGIN_001</div>
+          <div class="tc-title">User Login Functionality</div>
+          <div class="tc-meta">
+            <span class="tc-badge"><i class="fas fa-tag"></i> Authentication</span>
+            <span class="tc-badge"><i class="fas fa-exclamation-circle"></i> High Priority</span>
+            <span class="tc-badge"><i class="fas fa-check-circle"></i> Functional</span>
+            <span class="pass-badge">✓ Pass</span>
+          </div>
+        </div>
+        <div class="tc-body">
+          <p class="tc-objective">Verify that a registered user can successfully log in with valid credentials and is redirected to the appropriate post-login dashboard.</p>
+          <ul class="tc-steps">
+            <li class="tc-step"><div class="step-n">1</div><div class="step-txt"><strong>Navigate to Login Page</strong><span>Open browser and navigate to /login. Confirm form renders with username, password fields and Login button.</span></div></li>
+            <li class="tc-step"><div class="step-n">2</div><div class="step-txt"><strong>Enter Valid Username</strong><span>Type registered username. Verify input is accepted and characters display correctly.</span></div></li>
+            <li class="tc-step"><div class="step-n">3</div><div class="step-txt"><strong>Enter Valid Password</strong><span>Type correct password. Confirm input is masked (dots/asterisks) for security.</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">4</div><div class="step-txt"><strong>Submit Login Form</strong><span>Click "Login" button. Observe system response, network requests, and redirect behavior.</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">5</div><div class="step-txt"><strong>Verify Dashboard Load</strong><span>Confirm user is redirected to dashboard with correct welcome message and role-based UI.</span></div></li>
+          </ul>
+          <div class="tc-result">
+            <div class="tc-result-lbl">Expected Result</div>
+            <div class="tc-result-txt">User is authenticated, valid session established, and redirected to the dashboard page with welcome message displayed.</div>
+          </div>
+        </div>
+        <button class="tc-expand-btn" onclick="toggleExpand(this)"><i class="fas fa-chevron-down"></i> Show all steps</button>
+      </div>
+
+      <div class="tc-card reveal">
+        <div class="tc-header">
+          <div class="tc-id">TC_SEARCH_002</div>
+          <div class="tc-title">Product Search Functionality</div>
+          <div class="tc-meta">
+            <span class="tc-badge"><i class="fas fa-tag"></i> Product Search</span>
+            <span class="tc-badge"><i class="fas fa-exclamation-circle"></i> High Priority</span>
+            <span class="tc-badge"><i class="fas fa-check-circle"></i> Functional</span>
+            <span class="pass-badge">✓ Pass</span>
+          </div>
+        </div>
+        <div class="tc-body">
+          <p class="tc-objective">Verify that users can search for products using keywords and that the system returns accurate, relevant results from the product catalog.</p>
+          <ul class="tc-steps">
+            <li class="tc-step"><div class="step-n">1</div><div class="step-txt"><strong>Navigate to Homepage</strong><span>Open browser and load homepage. Confirm search bar is prominently visible and interactive.</span></div></li>
+            <li class="tc-step"><div class="step-n">2</div><div class="step-txt"><strong>Enter Search Keyword</strong><span>Click search field and type valid keyword (e.g., "laptop"). Verify autocomplete suggestions appear.</span></div></li>
+            <li class="tc-step"><div class="step-n">3</div><div class="step-txt"><strong>Trigger Search Action</strong><span>Press Enter or click search icon. Observe page behavior, loading indicators, and URL changes.</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">4</div><div class="step-txt"><strong>Validate Results Page</strong><span>Confirm search results page shows relevant products with names, images, and prices sorted by relevance.</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">5</div><div class="step-txt"><strong>Test No-Results State</strong><span>Search for a non-existent keyword and verify appropriate empty-state message is displayed.</span></div></li>
+          </ul>
+          <div class="tc-result">
+            <div class="tc-result-lbl">Expected Result</div>
+            <div class="tc-result-txt">Results page displays relevant products sorted by relevance. Appropriate message shown if no results found.</div>
+          </div>
+        </div>
+        <button class="tc-expand-btn" onclick="toggleExpand(this)"><i class="fas fa-chevron-down"></i> Show all steps</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════ BUG REPORTS ═══════════════════════════════ -->
+<section class="section alt">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-tag"><i class="fas fa-bug"></i> Defect Samples</div>
+      <h2 class="section-h2">Recent Bug Reports</h2>
+      <p class="section-sub">Sample defect reports demonstrating clear, actionable, and reproducible documentation style.</p>
+    </div>
+    <div class="bugs-grid">
+      <div class="bug-card reveal">
+        <div class="bug-top"><span class="bug-id">BUG-042</span><span class="bug-sev sev-critical">Critical</span></div>
+        <div class="bug-title">Session not invalidated on logout</div>
+        <div class="bug-desc">After clicking logout, navigating back using browser history allows access to the authenticated dashboard without re-authentication.</div>
+        <div class="bug-footer"><span class="bug-tag">Security</span><span class="bug-tag">Auth</span><span class="bug-tag">Web</span></div>
+      </div>
+      <div class="bug-card reveal">
+        <div class="bug-top"><span class="bug-id">BUG-031</span><span class="bug-sev sev-high">High</span></div>
+        <div class="bug-title">Cart total incorrect with applied coupon</div>
+        <div class="bug-desc">When applying a percentage-discount coupon code to a cart containing multiple items, the discount is applied only to the first item instead of the total.</div>
+        <div class="bug-footer"><span class="bug-tag">Calculation</span><span class="bug-tag">Cart</span><span class="bug-tag">E-Commerce</span></div>
+      </div>
+      <div class="bug-card reveal">
+        <div class="bug-top"><span class="bug-id">BUG-027</span><span class="bug-sev sev-medium">Medium</span></div>
+        <div class="bug-title">Search results not paginating correctly</div>
+        <div class="bug-desc">Navigating to page 3+ of search results occasionally displays the same products as page 1. Reproducible with "shoes" keyword on iOS Safari.</div>
+        <div class="bug-footer"><span class="bug-tag">Pagination</span><span class="bug-tag">iOS</span><span class="bug-tag">Safari</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════ CERTIFICATIONS ═══════════════════════════════ -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-tag"><i class="fas fa-award"></i> Credentials</div>
+      <h2 class="section-h2">Certifications & Training</h2>
+      <p class="section-sub">Continuous learning and professional development in software quality engineering.</p>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card reveal">
+        <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+        <div class="cert-name">ISTQB Foundation Level</div>
+        <div class="cert-org" style="font-size: 18px;">International Software Testing Qualifications Board</div>
+        <span class="cert-status status-active"><i class="fas fa-check-circle"></i> Certificate</span>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><i class="fas fa-rocket"></i></div>
+        <div class="cert-name">Postman API Testing</div>
+        <div class="cert-org"  style="font-size: 18px;">Postman Academy</div>
+        <span class="cert-status status-active"><i class="fas fa-check-circle"></i> Certificate</span>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><i class="fab fa-jira"></i></div>
+        <div class="cert-name">Agile with Jira</div>
+        <div class="cert-org"  style="font-size: 18px;">Atlassian University</div>
+        <span class="cert-status status-active"><i class="fas fa-check-circle"></i> Certificate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
+<section class="section alt" id="contact">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-tag"><i class="fas fa-paper-plane"></i> Contact</div>
+      <h2 class="section-h2">Let's Connect!</h2>
+      <p class="section-sub">Open to new opportunities, collaborations, and conversations about software quality.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-links reveal-l">
+        <a href="mailto:ahmedsamyfouad615@gmail.com" class="contact-link">
+          <div class="cl-icon"><i class="fas fa-envelope"></i></div>
+          <div><div class="cl-title">Email</div><div class="cl-val">ahmedsamyfouad615@gmail.com</div></div>
+        </a>
+        <a href="https://www.linkedin.com/in/ahmed-samy-b88617405" target="_blank" class="contact-link">
+          <div class="cl-icon"><i class="fab fa-linkedin-in"></i></div>
+          <div><div class="cl-title">LinkedIn</div><div class="cl-val">linkedin.com/in/ahmed-samy</div></div>
+        </a>
+        <a href="https://github.com/AhmedSamyFouad" target="_blank" class="contact-link">
+          <div class="cl-icon"><i class="fab fa-github"></i></div>
+          <div><div class="cl-title">GitHub</div><div class="cl-val">AhmedSamyFouad</div></div>
+        </a>
+      </div>
+      <div class="contact-panel reveal-r">
+        <div class="avail-icon"><i class="fas fa-paper-plane"></i></div>
+        <div class="avail-title">Currently Available</div>
+        <div class="avail-text">Open for full-time, part-time, and freelance QA engagements. Response time is typically within 24 hours.</div>
+        <div class="avail-badge"><div class="avail-dot"></div> Open to Opportunities</div>
+        <div style="margin-top:1.5rem;">
+          <a href="mailto:ahmedsamyfouad615@gmail.com" class="btn btn-primary" style="width:100%;justify-content:center;">
+            <i class="fas fa-paper-plane"></i> Send a Message
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Ahmed Samy · QA Engineer</div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-note">© 2026 Ahmed Samy. Crafted with precision.</div>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════ SCRIPTS ═══════════════════════════════ -->
+<script>
+// ── LOADER ──
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('loader').classList.add('hidden');
+    document.getElementById('float-contact').classList.add('visible');
+    // Animate hero items
+    document.querySelectorAll('.hero-left > *').forEach((el, i) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(24px)';
+      el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+      setTimeout(() => {
+        el.style.opacity = '1'; el.style.transform = 'translateY(0)';
+      }, i * 120);
+    });
+    // Terminal lines
+    document.querySelectorAll('.t-line').forEach((line, i) => {
+      line.style.opacity = '0';
+      line.style.transform = 'translateX(-8px)';
+      line.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+      setTimeout(() => { line.style.opacity = '1'; line.style.transform = 'translateX(0)'; }, 600 + i * 80);
+    });
+  }, 900);
+});
+
+// ── CURSOR GLOW ──
+const glow = document.getElementById('cursor-glow');
+document.addEventListener('mousemove', e => {
+  glow.style.left = e.clientX + 'px';
+  glow.style.top = e.clientY + 'px';
+});
+
+// ── NAV SCROLL ──
+const navbar = document.getElementById('navbar');
+const backTop = document.getElementById('back-top');
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+
+window.addEventListener('scroll', () => {
+  const sy = window.scrollY;
+  navbar.classList.toggle('scrolled', sy > 50);
+  backTop.classList.toggle('visible', sy > 400);
+
+  // Active nav
+  let current = '';
+  sections.forEach(s => { if (sy >= s.offsetTop - 120) current = s.id; });
+  navLinks.forEach(a => {
+    a.classList.remove('active');
+    if (a.getAttribute('href') === '#' + current) a.classList.add('active');
+  });
+});
+
+// ── MOBILE NAV ──
+const hamburger = document.getElementById('hamburger');
+const mobileNav = document.getElementById('mobileNav');
+const mobileClose = document.getElementById('mobileClose');
+const toggle = (open) => {
+  mobileNav.classList.toggle('open', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+};
+hamburger.onclick = () => toggle(true);
+mobileClose.onclick = () => toggle(false);
+document.querySelectorAll('.mobile-link').forEach(a => a.onclick = () => toggle(false));
+
+// ── REVEAL ON SCROLL ──
+const revealEls = document.querySelectorAll('.reveal, .reveal-l, .reveal-r');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObserver.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => revealObserver.observe(el));
+
+// ── ANIMATED COUNTERS ──
+const counters = document.querySelectorAll('.counter');
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (!e.isIntersecting) return;
+    const el = e.target;
+    const target = parseInt(el.dataset.target);
+    let current = 0;
+    const step = Math.ceil(target / 30);
+    const timer = setInterval(() => {
+      current = Math.min(current + step, target);
+      el.textContent = current + '+';
+      if (current >= target) { el.textContent = target + '+'; clearInterval(timer); }
+    }, 50);
+    counterObserver.unobserve(el);
+  });
+}, { threshold: 0.5 });
+counters.forEach(c => counterObserver.observe(c));
+
+// ── TOOLS FILTER ──
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.onclick = () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.tool-card').forEach(card => {
+      const match = filter === 'all' || card.dataset.cat === filter;
+      card.style.display = match ? '' : 'none';
+      card.style.opacity = match ? '1' : '0';
+    });
+  };
+});
+
+// ── TC EXPAND ──
+function toggleExpand(btn) {
+  const card = btn.closest('.tc-card');
+  const hidden = card.querySelectorAll('.tc-hidden');
+  const isHidden = hidden[0].style.display !== 'flex';
+  hidden.forEach(el => { el.style.display = isHidden ? 'flex' : 'none'; });
+  btn.innerHTML = isHidden
+    ? '<i class="fas fa-chevron-up"></i> Hide extra steps'
+    : '<i class="fas fa-chevron-down"></i> Show all steps';
+}
+
+// ── PROJECT MODALS ──
+const projects = {
+  ecommerce: {
+    tags: ['Web Testing', 'E-Commerce', 'Manual QA'],
+    title: 'E-Commerce Platform Testing',
+    body: `
+      <div class="modal-section-title">Overview</div>
+      <p style="font-size:0.93rem;color:var(--text-2);line-height:1.75;margin-bottom:1.75rem;">Conducted comprehensive manual testing for a newly developed e-commerce website, covering the full user journey from browsing to checkout. This project involved deep functional verification, cross-browser compatibility testing, and edge case exploration.</p>
+      <div class="modal-section-title">Key Findings & Contributions</div>
+      <ul class="highlight-list">
+        <li><i class="fas fa-chevron-right"></i> Identified critical bugs in user registration, product search, and filtering</li>
+        <li><i class="fas fa-chevron-right"></i> Validated cart management and end-to-end checkout process</li>
+        <li><i class="fas fa-chevron-right"></i> Cross-browser compatibility testing on Chrome, Firefox, Safari, Edge</li>
+        <li><i class="fas fa-chevron-right"></i> Cross-device responsiveness across desktop, tablet, and mobile</li>
+        <li><i class="fas fa-chevron-right"></i> Edge cases: empty cart, duplicate orders, session timeouts, payment failures</li>
+        <li><i class="fas fa-chevron-right"></i> Documented 9 bugs with clear reproduction steps and severity ratings</li>
+        <li><i class="fas fa-chevron-right"></i> Wrote 25+ detailed, traceable test cases in TestRail</li>
+      </ul>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <div style="flex:1;min-width:120px;text-align:center;background:var(--teal-dim);border:1px solid var(--border-bright);border-radius:10px;padding:1.25rem;">
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--teal);">25+</div>
+          <div style="font-size:0.78rem;color:var(--text-3);">Test Cases</div>
+        </div>
+        <div style="flex:1;min-width:120px;text-align:center;background:var(--teal-dim);border:1px solid var(--border-bright);border-radius:10px;padding:1.25rem;">
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--teal);">9</div>
+          <div style="font-size:0.78rem;color:var(--text-3);">Bugs Reported</div>
+        </div>
+        <div style="flex:1;min-width:120px;text-align:center;background:var(--teal-dim);border:1px solid var(--border-bright);border-radius:10px;padding:1.25rem;">
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--teal);">4</div>
+          <div style="font-size:0.78rem;color:var(--text-3);">Browsers Tested</div>
+        </div>
+      </div>`
+  },
+  mobile: {
+    tags: ['Mobile QA', 'Android & iOS', 'API Testing'],
+    title: 'Mobile Application QA',
+    body: `
+      <div class="modal-section-title">Overview</div>
+      <p style="font-size:0.93rem;color:var(--text-2);line-height:1.75;margin-bottom:1.75rem;">Performed thorough functional and usability testing on a consumer-facing mobile application available on both Android and iOS. Testing covered feature validation, API integration, stability under adverse conditions, and gesture/interaction testing.</p>
+      <div class="modal-section-title">Key Findings & Contributions</div>
+      <ul class="highlight-list">
+        <li><i class="fas fa-chevron-right"></i> Feature validation and UI consistency across screen sizes</li>
+        <li><i class="fas fa-chevron-right"></i> Gesture interactions and offline behavior testing</li>
+        <li><i class="fas fa-chevron-right"></i> API integration validation using Postman — verified 12 endpoints</li>
+        <li><i class="fas fa-chevron-right"></i> App stability under low-network conditions (2G simulation)</li>
+        <li><i class="fas fa-chevron-right"></i> Identified memory-related crashes and inconsistent loading states</li>
+        <li><i class="fas fa-chevron-right"></i> Reported 6 bugs including 2 crash-level defects</li>
+        <li><i class="fas fa-chevron-right"></i> Validated push notifications and background sync behavior</li>
+      </ul>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+        <div style="flex:1;min-width:120px;text-align:center;background:var(--teal-dim);border:1px solid var(--border-bright);border-radius:10px;padding:1.25rem;">
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--teal);">18+</div>
+          <div style="font-size:0.78rem;color:var(--text-3);">Test Cases</div>
+        </div>
+        <div style="flex:1;min-width:120px;text-align:center;background:var(--teal-dim);border:1px solid var(--border-bright);border-radius:10px;padding:1.25rem;">
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--teal);">6</div>
+          <div style="font-size:0.78rem;color:var(--text-3);">Bugs Reported</div>
+        </div>
+        <div style="flex:1;min-width:120px;text-align:center;background:var(--teal-dim);border:1px solid var(--border-bright);border-radius:10px;padding:1.25rem;">
+          <div style="font-family:var(--font-display);font-size:2rem;font-weight:800;color:var(--teal);">12</div>
+          <div style="font-size:0.78rem;color:var(--text-3);">API Endpoints</div>
+        </div>
+      </div>`
+  }
+};
+
+const overlay = document.getElementById('projectModal');
+const modalTitle = document.getElementById('modal-title');
+const modalTags = document.getElementById('modal-tags');
+const modalBody = document.getElementById('modal-body');
+
+function openModal(key) {
+  const p = projects[key];
+  modalTitle.textContent = p.title;
+  modalTags.innerHTML = p.tags.map((t, i) => `<span class="p-tag${i===2?' violet':''}">${t}</span>`).join('');
+  modalBody.innerHTML = p.body;
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+document.getElementById('modalClose').onclick = closeModal;
+overlay.onclick = e => { if (e.target === overlay) closeModal(); };
+function closeModal() { overlay.classList.remove('open'); document.body.style.overflow = ''; }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// Project cards also open on click (not just overlay btn)
+document.querySelectorAll('.project-card').forEach(card => {
+  card.onclick = () => openModal(card.dataset.project);
+});
+
+// ── SMOOTH SCROLL ──
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const href = a.getAttribute('href');
+    if (href === '#') return;
+    e.preventDefault();
+    const target = document.querySelector(href);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
