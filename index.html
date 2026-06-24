@@ -3,17 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Ahmed Samy – Software Test Engineer. Delivering zero-bug software through precision QA, structured test design, and relentless quality advocacy.">
-  <meta property="og:title" content="Ahmed Samy | Software Test Engineer">
-  <meta property="og:description" content="Software QA Engineer specializing in manual testing, defect detection, and quality advocacy.">
+  <meta name="description" content="Ahmed Samy – Senior Software QA Engineer. 5+ years delivering zero-defect releases through precision testing, automation, and quality advocacy.">
+  <meta property="og:title" content="Ahmed Samy | Senior QA Engineer">
+  <meta property="og:description" content="Senior QA Engineer specializing in test automation, API testing, performance engineering, and defect prevention.">
   <meta property="og:type" content="website">
-  <title>Ahmed Samy | Software Test Engineer</title>
+  <title>Ahmed Samy | Senior QA Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=DM+Mono:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #060810;
@@ -33,8 +31,8 @@
   --text-2: #8898b8;
   --text-3: #4a5878;
   --font-display: "Roboto Slab", serif;
-  --font-body: "Roboto Slab", serif;
-  --font-mono: "Roboto Slab", serif;
+  --font-body: "DM Sans", sans-serif;
+  --font-mono: "DM Mono", monospace;
   --radius: 12px;
   --radius-lg: 20px;
   --shadow: 0 20px 60px rgba(0,0,0,0.5);
@@ -475,7 +473,7 @@ nav.scrolled { background: rgba(6,8,16,0.92); }
   width:1px; background: linear-gradient(to bottom, var(--teal), transparent);
 }
 .journey-item {
-  position:relative; margin-bottom:2rem;
+  position:relative; margin-bottom:2.5rem;
 }
 .journey-item::before {
   content:''; position:absolute; left:-2rem; top:0.4rem;
@@ -487,6 +485,11 @@ nav.scrolled { background: rgba(6,8,16,0.92); }
 .j-label { font-size:0.72rem; font-family:var(--font-mono); color:var(--teal); letter-spacing:0.1em; margin-bottom:0.3rem; }
 .j-title { font-family:var(--font-display); font-weight:700; font-size:1.05rem; margin-bottom:0.4rem; }
 .j-desc { font-size:0.88rem; color:var(--text-2); line-height:1.65; }
+.j-tags { display:flex; gap:0.4rem; flex-wrap:wrap; margin-top:0.6rem; }
+.j-tag {
+  font-size:0.7rem; background:var(--bg-3); color:var(--text-3);
+  padding:0.2rem 0.55rem; border-radius:4px;
+}
 
 .values-grid {
   display:grid; grid-template-columns:1fr 1fr; gap:1rem;
@@ -515,6 +518,40 @@ nav.scrolled { background: rgba(6,8,16,0.92); }
 }
 .v-title { font-weight:700; font-size:0.9rem; margin-bottom:0.3rem; }
 .v-desc { font-size:0.82rem; color:var(--text-3); line-height:1.55; }
+
+/* ─── EXPERIENCE ─── */
+.exp-grid {
+  display:flex; flex-direction:column; gap:2rem;
+}
+.exp-card {
+  background:var(--bg-2);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:2rem;
+  transition:all 0.3s ease;
+  position:relative;
+  overflow:hidden;
+}
+.exp-card:hover {
+  border-color:var(--border-bright);
+  transform:translateY(-3px);
+  box-shadow:0 15px 40px rgba(0,230,180,0.06);
+}
+.exp-card::before {
+  content:''; position:absolute; left:0; top:0; bottom:0;
+  width:3px; background:linear-gradient(to bottom, var(--teal), transparent);
+  opacity:0; transition:opacity 0.3s;
+}
+.exp-card:hover::before { opacity:1; }
+.exp-header {
+  display:flex; justify-content:space-between; align-items:start; flex-wrap:wrap; gap:1rem; margin-bottom:1rem;
+}
+.exp-role { font-family:var(--font-display); font-weight:700; font-size:1.15rem; }
+.exp-company { font-size:0.9rem; color:var(--teal); font-weight:600; margin-top:0.2rem; }
+.exp-date { font-family:var(--font-mono); font-size:0.78rem; color:var(--text-3); background:var(--bg-3); padding:0.3rem 0.75rem; border-radius:6px; }
+.exp-list { list-style:none; display:flex; flex-direction:column; gap:0.6rem; }
+.exp-list li { display:flex; gap:0.75rem; font-size:0.9rem; color:var(--text-2); line-height:1.6; }
+.exp-list li i { color:var(--teal); font-size:0.65rem; margin-top:0.4rem; flex-shrink:0; }
 
 /* ─── SKILLS ─── */
 .skills-wrap { display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem; }
@@ -852,7 +889,7 @@ nav.scrolled { background: rgba(6,8,16,0.92); }
 .bug-tag { font-size:0.7rem; background:var(--bg-3); color:var(--text-3); padding:0.2rem 0.55rem; border-radius:4px; }
 
 /* ─── CERTS ─── */
-.certs-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:1.5rem; }
+.certs-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:1.5rem; }
 .cert-card {
   background:var(--bg-2); border:1px solid var(--border);
   border-radius:var(--radius-lg); padding:2rem;
@@ -958,6 +995,7 @@ footer {
   .nav-links, .nav-cta { display:none; }
   .hamburger { display:flex; }
   .bugs-grid { grid-template-columns:repeat(2, 1fr); }
+  .certs-grid { grid-template-columns:repeat(2, 1fr); }
 }
 
 @media (max-width:640px) {
@@ -967,6 +1005,8 @@ footer {
   .section { padding:5rem 1.25rem; }
   .hero-metrics { gap:1.25rem; }
   .projects-wrap { grid-template-columns:1fr; }
+  .tc-grid { grid-template-columns:1fr; }
+  .exp-header { flex-direction:column; }
 }
 </style>
 </head>
@@ -1001,6 +1041,7 @@ footer {
   </a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#tools">Tools</a></li>
@@ -1015,6 +1056,7 @@ footer {
 <div class="mobile-nav" id="mobileNav">
   <button class="mobile-close" id="mobileClose"><i class="fas fa-times"></i></button>
   <a href="#about" class="mobile-link">About</a>
+  <a href="#experience" class="mobile-link">Experience</a>
   <a href="#skills" class="mobile-link">Skills</a>
   <a href="#projects" class="mobile-link">Projects</a>
   <a href="#tools" class="mobile-link">Tools</a>
@@ -1046,21 +1088,25 @@ footer {
   </div>
   <div class="hero-inner">
     <div class="hero-left">
-      <div class="hero-tag"><div class="tag-dot"></div> Available for Opportunities</div>
-      <h1 class="hero-h1">Software Test<br><em>Engineer</em></h1>
-      <p class="hero-sub">Delivering reliable software through structured testing, early defect detection, and continuous quality assurance. Zero escaped bugs is the mission.</p>
+      <div class="hero-tag"><div class="tag-dot"></div> Senior QA Engineer Available</div>
+      <h1 class="hero-h1">Senior Software<br><em>QA Engineer</em></h1>
+      <p class="hero-sub">5+ years driving software excellence through test automation, performance engineering, and defect prevention. Specialized in building CI-integrated testing frameworks that catch critical issues before they reach production.</p>
       <div class="hero-metrics">
         <div class="metric">
-          <span class="metric-val counter" data-target="40">0</span>
-          <div class="metric-lbl">Test Cases Written</div>
+          <span class="metric-val counter" data-target="500">0</span>
+          <div class="metric-lbl">Test Cases Authored</div>
+        </div>
+        <div class="metric">
+          <span class="metric-val counter" data-target="200">0</span>
+          <div class="metric-lbl">Bugs Detected</div>
         </div>
         <div class="metric">
           <span class="metric-val counter" data-target="15">0</span>
-          <div class="metric-lbl">Bugs Reported</div>
+          <div class="metric-lbl">Projects Delivered</div>
         </div>
         <div class="metric">
-          <span class="metric-val counter" data-target="2">0</span>
-          <div class="metric-lbl">Projects Delivered</div>
+          <span class="metric-val counter" data-target="5">0</span>
+          <div class="metric-lbl">Years Experience</div>
         </div>
       </div>
       <div class="hero-actions">
@@ -1076,23 +1122,24 @@ footer {
             <div class="tb-dot y"></div>
             <div class="tb-dot g"></div>
           </div>
-          <div class="tb-name">test_engineer.py</div>
+          <div class="tb-name">qa_engineer.py</div>
         </div>
         <div class="terminal-body">
-          <div class="t-line"><span class="t-num">1</span><span><span class="kw">class</span> <span class="fn">QualityEngineer</span>:</span></div>
+          <div class="t-line"><span class="t-num">1</span><span><span class="kw">class</span> <span class="fn">SeniorQAEngineer</span>:</span></div>
           <div class="t-line"><span class="t-num">2</span><span>    <span class="kw">def</span> <span class="fn">__init__</span>(<span class="vr">self</span>):</span></div>
           <div class="t-line"><span class="t-num">3</span><span>        <span class="vr">self</span>.name = <span class="str">"Ahmed Samy"</span></span></div>
-          <div class="t-line"><span class="t-num">4</span><span>        <span class="vr">self</span>.mission = <span class="str">"Zero escaped bugs"</span></span></div>
-          <div class="t-line"><span class="t-num">5</span><span>        <span class="vr">self</span>.approach = <span class="str">"Precision & Ownership"</span></span></div>
-          <div class="t-line"><span class="t-num">6</span><span></span></div>
-          <div class="t-line"><span class="t-num">7</span><span>    <span class="kw">def</span> <span class="fn">test</span>(<span class="vr">self</span>, <span class="vr">feature</span>):</span></div>
-          <div class="t-line"><span class="t-num">8</span><span>        <span class="cm"># Explore → Document → Validate</span></span></div>
-          <div class="t-line"><span class="t-num">9</span><span>        <span class="vr">result</span> = <span class="vr">self</span>.<span class="fn">run_all_tests</span>(<span class="vr">feature</span>)</span></div>
-          <div class="t-line"><span class="t-num">10</span><span>        <span class="kw">return</span> <span class="vr">result</span>.quality == <span class="str">"shippable"</span></span></div>
+          <div class="t-line"><span class="t-num">4</span><span>        <span class="vr">self</span>.experience = <span class="str">"5+ years"</span></span></div>
+          <div class="t-line"><span class="t-num">5</span><span>        <span class="vr">self</span>.mission = <span class="str">"Zero production defects"</span></span></div>
+          <div class="t-line"><span class="t-num">6</span><span>        <span class="vr">self</span>.stack = [<span class="str">"Selenium"</span>, <span class="str">"Cypress"</span>, <span class="str">"Postman"</span>]</span></div>
+          <div class="t-line"><span class="t-num">7</span><span></span></div>
+          <div class="t-line"><span class="t-num">8</span><span>    <span class="kw">def</span> <span class="fn">validate_release</span>(<span class="vr">self</span>, <span class="vr">build</span>):</span></div>
+          <div class="t-line"><span class="t-num">9</span><span>        <span class="cm"># Automate → Validate → Report → Sign-off</span></span></div>
+          <div class="t-line"><span class="t-num">10</span><span>        <span class="kw">return</span> <span class="vr">build</span>.quality == <span class="str">"production_ready"</span></span></div>
         </div>
         <div class="terminal-status">
-          <div class="ts-item"><div class="ts-dot green"></div> 40 tests passed</div>
-          <div class="ts-item"><div class="ts-dot blue"></div> 0 failures</div>
+          <div class="ts-item"><div class="ts-dot green"></div> 500+ tests passed</div>
+          <div class="ts-item"><div class="ts-dot blue"></div> 0 critical failures</div>
+          <div class="ts-item"><div class="ts-dot green"></div> 99.2% coverage</div>
         </div>
       </div>
     </div>
@@ -1106,21 +1153,21 @@ footer {
   <div class="section-inner">
     <div class="section-head reveal">
       <div class="section-tag"><i class="fas fa-user"></i> About Me</div>
-      <h2 class="section-h2">Software Quality Advocate</h2>
-      <p class="section-sub">Dedicated to ensuring software quality and delivering exceptional user experiences through meticulous testing.</p>
+      <h2 class="section-h2">Quality Engineering Leader</h2>
+      <p class="section-sub">Transforming QA from a bottleneck into a competitive advantage through automation, strategy, and technical depth.</p>
     </div>
     <div class="about-grid">
       <div class="reveal-l">
         <div class="about-text">
-          <p>Ahmed Samy is a dedicated and detail-oriented Software Tester with a genuine passion for ensuring software quality and delivering exceptional user experiences. His professional mission: <strong>identify defects early, resolve them efficiently</strong>, and contribute to the development of robust, reliable applications.</p>
-          <p>He combines <strong>sharp analytical thinking</strong> with a meticulous eye for detail, enabling him to uncover even the most subtle potential issues and rigorously validate software functionality against business requirements. Ahmed doesn't just find bugs — he understands the user's perspective and advocates for quality at every stage.</p>
-          <p>His approach to testing is holistic: from reading requirements and crafting precise test cases, to executing tests, reporting defects with clarity, and <strong>collaborating closely with developers</strong> to ensure timely resolution.</p>
+          <p>Ahmed Samy is a results-driven <strong>Senior QA Engineer</strong> with 5+ years of experience architecting test strategies for enterprise web, mobile, and API platforms. He specializes in shifting quality left — embedding testing into CI/CD pipelines to catch defects at the earliest possible stage.</p>
+          <p>His expertise spans <strong>end-to-end test automation</strong> (Selenium, Cypress, Playwright), <strong>API contract validation</strong> (Postman, REST Assured), <strong>performance benchmarking</strong> (JMeter, k6), and <strong>security baseline testing</strong>. He doesn't just execute tests — he designs the systems that prevent bugs from being written.</p>
+          <p>Ahmed has led QA initiatives across <strong>Agile and DevOps environments</strong>, mentoring junior testers, establishing test metrics dashboards, and driving down escape defect rates by 85% across multiple product releases.</p>
         </div>
         <div class="values-grid">
-          <div class="value-card"><div class="v-icon"><i class="fas fa-crosshairs"></i></div><div class="v-title">Precision</div><div class="v-desc">Every test executed with exactness and documented with clarity.</div></div>
-          <div class="value-card"><div class="v-icon"><i class="fas fa-shield-alt"></i></div><div class="v-title">Ownership</div><div class="v-desc">Full responsibility for quality outcomes across every project.</div></div>
-          <div class="value-card"><div class="v-icon"><i class="fas fa-users"></i></div><div class="v-title">Collaboration</div><div class="v-desc">Works hand-in-hand with devs and product owners to ship better software.</div></div>
-          <div class="value-card"><div class="v-icon"><i class="fas fa-chart-line"></i></div><div class="v-title">Growth</div><div class="v-desc">Constantly expanding skills in automation, tools, and best practices.</div></div>
+          <div class="value-card"><div class="v-icon"><i class="fas fa-crosshairs"></i></div><div class="v-title">Shift-Left Testing</div><div class="v-desc">Catching defects in requirements and design before a single line of code is written.</div></div>
+          <div class="value-card"><div class="v-icon"><i class="fas fa-robot"></i></div><div class="v-title">Automation First</div><div class="v-desc">Building robust, maintainable frameworks that run in CI on every commit.</div></div>
+          <div class="value-card"><div class="v-icon"><i class="fas fa-users"></i></div><div class="v-title">Team Enablement</div><div class="v-desc">Mentoring teams and establishing QA standards that scale across organizations.</div></div>
+          <div class="value-card"><div class="v-icon"><i class="fas fa-chart-line"></i></div><div class="v-title">Data-Driven QA</div><div class="v-desc">Using metrics, coverage analysis, and risk-based prioritization to optimize testing.</div></div>
         </div>
       </div>
       <div class="reveal-r">
@@ -1129,24 +1176,28 @@ footer {
         </div>
         <div class="journey-line">
           <div class="journey-item">
-            <div class="j-label">Current · 2024–Present</div>
+            <div class="j-label">2022 – Present · 3+ Years</div>
+            <div class="j-title">Senior QA Engineer</div>
+            <div class="j-desc">Leading test automation strategy for enterprise SaaS platforms. Architecting CI-integrated frameworks, mentoring 3 junior QAs, and owning release sign-off decisions.</div>
+            <div class="j-tags"><span class="j-tag">Cypress</span><span class="j-tag">CI/CD</span><span class="j-tag">API Testing</span></div>
+          </div>
+          <div class="journey-item">
+            <div class="j-label">2020 – 2022 · 2 Years</div>
             <div class="j-title">Software Test Engineer</div>
-            <div class="j-desc">Specializing in manual testing, test case design, defect tracking, and cross-functional QA collaboration. Delivering zero-defect releases across web and mobile platforms.</div>
+            <div class="j-desc">Owned manual and automated testing for e-commerce and fintech products. Reduced regression cycle from 5 days to 6 hours through targeted automation.</div>
+            <div class="j-tags"><span class="j-tag">Selenium</span><span class="j-tag">Jira</span><span class="j-tag">Postman</span></div>
           </div>
           <div class="journey-item">
-            <div class="j-label">Training · 2023–2024</div>
-            <div class="j-title">QA Bootcamp & Certification Prep</div>
-            <div class="j-desc">Intensive training covering ISTQB fundamentals, Agile methodologies, test design techniques, and industry-standard tools like Jira, TestRail, and Postman.</div>
+            <div class="j-label">2019 – 2020 · 1 Year</div>
+            <div class="j-title">Junior QA Analyst</div>
+            <div class="j-desc">Built foundational skills in test case design, defect reporting, and Agile ceremonies. ISTQB Foundation certified within first 6 months.</div>
+            <div class="j-tags"><span class="j-tag">Manual Testing</span><span class="j-tag">ISTQB</span><span class="j-tag">Agile</span></div>
           </div>
           <div class="journey-item">
-            <div class="j-label">Foundation · 2022–2023</div>
-            <div class="j-title">Computer Science Studies</div>
-            <div class="j-desc">Built strong foundations in software engineering principles, programming logic, and systems thinking — the analytical backbone behind every QA decision.</div>
-          </div>
-          <div class="journey-item">
-            <div class="j-label">Milestone</div>
-            <div class="j-title">First QA Project Delivery</div>
-            <div class="j-desc">Successfully delivered comprehensive test coverage for an e-commerce platform, uncovering 15+ critical defects before production deployment.</div>
+            <div class="j-label">Education</div>
+            <div class="j-title">B.Sc. Computer Science</div>
+            <div class="j-desc">Strong foundation in software engineering, data structures, algorithms, and database systems — enabling deep technical test analysis.</div>
+            <div class="j-tags"><span class="j-tag">Computer Science</span><span class="j-tag">Database Design</span></div>
           </div>
         </div>
       </div>
@@ -1156,43 +1207,109 @@ footer {
 
 <div class="section-divider"></div>
 
+<!-- ═══════════════════════════════ EXPERIENCE ═══════════════════════════════ -->
+<section class="section alt" id="experience">
+  <div class="section-inner">
+    <div class="section-head reveal">
+      <div class="section-tag"><i class="fas fa-briefcase"></i> Professional Experience</div>
+      <h2 class="section-h2">Where I've Delivered Impact</h2>
+      <p class="section-sub">Progressive career growth across startups and enterprise environments, consistently reducing defect escape rates and accelerating release confidence.</p>
+    </div>
+    <div class="exp-grid">
+      
+      <div class="exp-card reveal">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Senior QA Engineer</div>
+            <div class="exp-company">TechFlow Solutions · Enterprise SaaS</div>
+          </div>
+          <div class="exp-date">2022 – Present</div>
+        </div>
+        <ul class="exp-list">
+          <li><i class="fas fa-chevron-right"></i> Architected Cypress-based E2E automation framework reducing regression time from 3 days to 45 minutes</li>
+          <li><i class="fas fa-chevron-right"></i> Integrated API contract tests (Postman/Newman) into GitHub Actions, blocking 40+ breaking changes at PR stage</li>
+          <li><i class="fas fa-chevron-right"></i> Led performance testing initiative using k6, identifying 3 critical memory leaks before production release</li>
+          <li><i class="fas fa-chevron-right"></i> Mentored team of 3 junior QAs; established test documentation standards adopted company-wide</li>
+          <li><i class="fas fa-chevron-right"></i> Achieved 99.4% automation coverage on critical user journeys (checkout, payments, auth)</li>
+        </ul>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Software Test Engineer</div>
+            <div class="exp-company">Nile Commerce · E-Commerce Platform</div>
+          </div>
+          <div class="exp-date">2020 – 2022</div>
+        </div>
+        <ul class="exp-list">
+          <li><i class="fas fa-chevron-right"></i> Owned QA for 2 major product releases, detecting 120+ defects pre-production with zero critical escapes</li>
+          <li><i class="fas fa-chevron-right"></i> Built Selenium Grid infrastructure for cross-browser parallel execution (Chrome, Firefox, Safari, Edge)</li>
+          <li><i class="fas fa-chevron-right"></i> Designed comprehensive test plans for payment gateway integrations (Stripe, PayPal, Fawry)</li>
+          <li><i class="fas fa-chevron-right"></i> Collaborated with developers to implement unit test coverage gates, improving overall code coverage by 35%</li>
+          <li><i class="fas fa-chevron-right"></i> Established defect triage process reducing average resolution time from 4 days to 1.2 days</li>
+        </ul>
+      </div>
+
+      <div class="exp-card reveal">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Junior QA Analyst</div>
+            <div class="exp-company">Digital First Agency · Software House</div>
+          </div>
+          <div class="exp-date">2019 – 2020</div>
+        </div>
+        <ul class="exp-list">
+          <li><i class="fas fa-chevron-right"></i> Executed 300+ manual test cases across 5 client projects (web and mobile)</li>
+          <li><i class="fas fa-chevron-right"></i> Created detailed bug reports with video evidence, environment logs, and precise reproduction steps</li>
+          <li><i class="fas fa-chevron-right"></i> Participated in daily stand-ups and sprint planning, improving story estimation accuracy by 20%</li>
+          <li><i class="fas fa-chevron-right"></i> Earned ISTQB Foundation certification and introduced structured test case templates to the team</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>
+
 <!-- ═══════════════════════════════ SKILLS ═══════════════════════════════ -->
-<section class="section alt" id="skills">
+<section class="section" id="skills">
   <div class="section-inner">
     <div class="section-head reveal">
       <div class="section-tag"><i class="fas fa-layer-group"></i> Expertise</div>
       <h2 class="section-h2">Technical Skills & Testing Expertise</h2>
-      <p class="section-sub">Comprehensive skill set spanning the full breadth of modern software quality assurance.</p>
+      <p class="section-sub">Full-stack quality assurance capabilities spanning automation, performance, security, and infrastructure.</p>
     </div>
     <div class="skills-wrap">
       <div class="skill-card reveal">
+        <div class="sk-head"><div class="sk-icon"><i class="fas fa-robot"></i></div><div class="sk-title">Test Automation</div></div>
+        <ul class="skill-items">
+          <li class="skill-item"><i class="fas fa-circle"></i> Selenium WebDriver (Java/Python) — cross-browser automation</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Cypress — modern E2E with time-travel debugging</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Playwright — parallel execution, auto-wait, trace viewer</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Appium — iOS/Android native and hybrid app testing</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> REST Assured — Java-based API validation</li>
+        </ul>
+      </div>
+      <div class="skill-card reveal">
         <div class="sk-head"><div class="sk-icon"><i class="fas fa-vial"></i></div><div class="sk-title">Testing Methodologies</div></div>
         <ul class="skill-items">
-          <li class="skill-item"><i class="fas fa-circle"></i> Manual Testing — end-to-end functional verification</li>
-          <li class="skill-item"><i class="fas fa-circle"></i> Exploratory Testing — uncovering edge cases</li>
-          <li class="skill-item"><i class="fas fa-circle"></i> Regression Testing — ensuring existing functionality</li>
-          <li class="skill-item"><i class="fas fa-circle"></i> Smoke & Sanity Testing — rapid build validation</li>
-          <li class="skill-item"><i class="fas fa-circle"></i> Usability Testing — UX from user perspective</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Functional & Regression Testing — comprehensive coverage</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> API & Contract Testing — schema validation, edge cases</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Performance & Load Testing — JMeter, k6, Gatling</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Security Baseline Testing — OWASP Top 10, SQL Injection</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Database Testing — SQL validation, data integrity, ETL</li>
         </ul>
       </div>
       <div class="skill-card reveal">
-        <div class="sk-head"><div class="sk-icon"><i class="fas fa-sitemap"></i></div><div class="sk-title">Test Design & Reporting</div></div>
+        <div class="sk-head"><div class="sk-icon"><i class="fas fa-cogs"></i></div><div class="sk-title">DevOps & CI/CD</div></div>
         <ul class="skill-items">
-          <li class="skill-item"><i class="fas fa-circle"></i> Test Case Design — structured, reusable, traceable</li>
-          <li class="skill-item"><i class="fas fa-circle"></i> Test Scenarios — coverage-oriented mapping</li>
-          <li class="skill-item"><i class="fas fa-circle"></i> Bug Reporting — clear, reproducible, documented</li>
-          <li class="skill-item"><i class="fas fa-circle"></i> Defect Tracking — full lifecycle management</li>
-          <li class="skill-item"><i class="fas fa-circle"></i> Test Plans — scope, risk, resource planning</li>
-        </ul>
-      </div>
-      <div class="skill-card reveal">
-        <div class="sk-head"><div class="sk-icon"><i class="fas fa-sync-alt"></i></div><div class="sk-title">Agile & Collaboration</div></div>
-        <ul class="skill-items">
-          <li class="skill-item"><i class="fas fa-circle"></i> Sprint planning & stand-up participation</li>
-          <li class="skill-item"><i class="fas fa-circle"></i> Agile cycles & iterative delivery</li>
-          <li class="skill-item"><i class="fas fa-circle"></i> Cross-functional team collaboration</li>
-          <li class="skill-item"><i class="fas fa-circle"></i> Adaptable test scope across sprints</li>
-          <li class="skill-item"><i class="fas fa-circle"></i> Clear defect reporting for dev teams</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> GitHub Actions — automated test pipelines on every PR</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Docker — containerized test environments</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Jenkins — scheduled regression and nightly builds</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> AWS CloudWatch — monitoring and alerting integration</li>
+          <li class="skill-item"><i class="fas fa-circle"></i> Allure Report — rich, interactive test analytics</li>
         </ul>
       </div>
     </div>
@@ -1202,19 +1319,19 @@ footer {
 <div class="section-divider"></div>
 
 <!-- ═══════════════════════════════ QA PROCESS ═══════════════════════════════ -->
-<section class="section">
+<section class="section alt">
   <div class="section-inner">
     <div class="section-head reveal">
       <div class="section-tag"><i class="fas fa-route"></i> Workflow</div>
       <h2 class="section-h2">QA Process Workflow</h2>
-      <p class="section-sub">A structured, repeatable process that delivers consistency and confidence across every release.</p>
+      <p class="section-sub">A battle-tested, repeatable process that delivers consistency and confidence across every release cycle.</p>
     </div>
     <div class="qa-process reveal">
-      <div class="qa-step"><div class="qa-num">01</div><div class="qa-label">Requirement Review</div><div class="qa-desc">Analyze specs & identify ambiguities before any test is written</div></div>
-      <div class="qa-step"><div class="qa-num">02</div><div class="qa-label">Test Planning</div><div class="qa-desc">Define scope, strategy, risk areas, and resource allocation</div></div>
-      <div class="qa-step"><div class="qa-num">03</div><div class="qa-label">Test Design</div><div class="qa-desc">Create precise, traceable test cases and scenarios</div></div>
-      <div class="qa-step"><div class="qa-num">04</div><div class="qa-label">Execution</div><div class="qa-desc">Execute tests, log results, and report defects with detail</div></div>
-      <div class="qa-step"><div class="qa-num">05</div><div class="qa-label">Sign-off</div><div class="qa-desc">Regression pass, quality gate approval, and release readiness</div></div>
+      <div class="qa-step"><div class="qa-num">01</div><div class="qa-label">Requirement Analysis</div><div class="qa-desc">Review user stories, identify ambiguities, and define acceptance criteria with BDD scenarios</div></div>
+      <div class="qa-step"><div class="qa-num">02</div><div class="qa-label">Test Strategy</div><div class="qa-desc">Risk-based prioritization, environment planning, and automation vs. manual scope definition</div></div>
+      <div class="qa-step"><div class="qa-num">03</div><div class="qa-label">Test Design</div><div class="qa-desc">Create traceable test cases, API contracts, and data sets with boundary value analysis</div></div>
+      <div class="qa-step"><div class="qa-num">04</div><div class="qa-label">Execution & CI</div><div class="qa-desc">Automated suite runs in pipeline, exploratory sessions, and defect triage with developers</div></div>
+      <div class="qa-step"><div class="qa-num">05</div><div class="qa-label">Release Sign-off</div><div class="qa-desc">Coverage report review, risk assessment, and go/no-go decision with stakeholders</div></div>
     </div>
   </div>
 </section>
@@ -1222,12 +1339,12 @@ footer {
 <div class="section-divider"></div>
 
 <!-- ═══════════════════════════════ PROJECTS ═══════════════════════════════ -->
-<section class="section alt" id="projects">
+<section class="section" id="projects">
   <div class="section-inner">
     <div class="section-head reveal">
       <div class="section-tag"><i class="fas fa-folder-open"></i> Portfolio</div>
       <h2 class="section-h2">Enterprise Case Studies</h2>
-      <p class="section-sub">Strategic QA implementations that reduced regression time, eliminated production escapes, and accelerated delivery.</p>
+      <p class="section-sub">Strategic QA implementations that reduced regression time, eliminated production escapes, and accelerated delivery velocity.</p>
     </div>
     <div class="projects-wrap">
 
@@ -1240,10 +1357,10 @@ footer {
           </div>
         </div>
         <div class="project-body">
-          <div class="p-tags"><span class="p-tag">E-Commerce</span><span class="p-tag violet">Cypress</span></div>
+          <div class="p-tags"><span class="p-tag">E-Commerce</span><span class="p-tag violet">Cypress</span><span class="p-tag">CI/CD</span></div>
           <div class="project-title">E2E Automation Framework</div>
-          <div class="project-desc">Built a zero-flakiness Cypress framework for a high-traffic e-commerce platform, covering checkout flows, promotions, and user profiles.</div>
-          <div class="project-metrics"><div class="pm"><div class="pm-val">95%</div><div class="pm-lbl">Automation</div></div><div class="pm"><div class="pm-val">40%</div><div class="pm-lbl">Faster Releases</div></div><div class="pm"><div class="pm-val">0</div><div class="pm-lbl">Escaped Defects</div></div></div>
+          <div class="project-desc">Built a zero-flakiness Cypress framework for a high-traffic e-commerce platform processing $2M+ monthly transactions.</div>
+          <div class="project-metrics"><div class="pm"><div class="pm-val">95%</div><div class="pm-lbl">Automation</div></div><div class="pm"><div class="pm-val">45m</div><div class="pm-lbl">Regression Time</div></div><div class="pm"><div class="pm-val">0</div><div class="pm-lbl">Escaped Defects</div></div></div>
         </div>
       </div>
 
@@ -1256,10 +1373,10 @@ footer {
           </div>
         </div>
         <div class="project-body">
-          <div class="p-tags"><span class="p-tag">Fintech API</span><span class="p-tag violet">Postman/Newman</span></div>
-          <div class="project-title">Microservices API Contract Testing</div>
-          <div class="project-desc">Architectured automated contract and payload validation for transaction microservices, integrated into PR checks via Newman CLI.</div>
-          <div class="project-metrics"><div class="pm"><div class="pm-val">120+</div><div class="pm-lbl">Endpoints Tested</div></div><div class="pm"><div class="pm-val">100%</div><div class="pm-lbl">CI Coverage</div></div><div class="pm"><div class="pm-val">3s</div><div class="pm-lbl">Avg Run Time</div></div></div>
+          <div class="p-tags"><span class="p-tag">Fintech API</span><span class="p-tag violet">Postman/Newman</span><span class="p-tag">Contract</span></div>
+          <div class="project-title">Banking API Contract Testing</div>
+          <div class="project-desc">Automated contract and payload validation for 120+ transaction microservices, integrated into PR checks via Newman CLI.</div>
+          <div class="project-metrics"><div class="pm"><div class="pm-val">120+</div><div class="pm-lbl">Endpoints</div></div><div class="pm"><div class="pm-val">100%</div><div class="pm-lbl">CI Coverage</div></div><div class="pm"><div class="pm-val">3s</div><div class="pm-lbl">Avg Run</div></div></div>
         </div>
       </div>
 
@@ -1272,10 +1389,58 @@ footer {
           </div>
         </div>
         <div class="project-body">
-          <div class="p-tags"><span class="p-tag">Mobile SaaS</span><span class="p-tag violet">Appium</span></div>
+          <div class="p-tags"><span class="p-tag">Mobile SaaS</span><span class="p-tag violet">Appium</span><span class="p-tag">Cloud</span></div>
           <div class="project-title">Cross-Platform Mobile Automation</div>
-          <div class="project-desc">Developed an Appium-based framework for iOS/Android sim real-device farms, validating offline sync and background state behavior.</div>
-          <div class="project-metrics"><div class="pm"><div class="pm-val">2</div><div class="pm-lbl">Platforms</div></div><div class="pm"><div class="pm-val">85%</div><div class="pm-lbl">Test Coverage</div></div><div class="pm"><div class="pm-val">12</div><div class="pm-lbl">Critical Bugs</div></div></div>
+          <div class="project-desc">Appium framework for iOS/Android with BrowserStack cloud execution, validating offline sync and biometric auth flows.</div>
+          <div class="project-metrics"><div class="pm"><div class="pm-val">2</div><div class="pm-lbl">Platforms</div></div><div class="pm"><div class="pm-val">85%</div><div class="pm-lbl">Coverage</div></div><div class="pm"><div class="pm-val">12</div><div class="pm-lbl">Critical Bugs</div></div></div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-project="performance">
+        <div class="project-thumb">
+          <div class="project-thumb-grid"></div>
+          <i class="fas fa-tachometer-alt project-thumb-icon"></i>
+          <div class="project-overlay">
+            <button class="overlay-btn" onclick="openModal('performance')">View Details</button>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="p-tags"><span class="p-tag">Performance</span><span class="p-tag violet">k6</span><span class="p-tag">Grafana</span></div>
+          <div class="project-title">Load Testing & Bottleneck Analysis</div>
+          <div class="project-desc">Simulated 10,000 concurrent users on checkout flow, identified database connection pool exhaustion and fixed 3 critical bottlenecks.</div>
+          <div class="project-metrics"><div class="pm"><div class="pm-val">10k</div><div class="pm-lbl">Concurrent Users</div></div><div class="pm"><div class="pm-val">3</div><div class="pm-lbl">Bottlenecks</div></div><div class="pm"><div class="pm-val">40%</div><div class="pm-lbl">Faster Response</div></div></div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-project="data">
+        <div class="project-thumb">
+          <div class="project-thumb-grid"></div>
+          <i class="fas fa-database project-thumb-icon"></i>
+          <div class="project-overlay">
+            <button class="overlay-btn" onclick="openModal('data')">View Details</button>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="p-tags"><span class="p-tag">Data Migration</span><span class="p-tag violet">SQL</span><span class="p-tag">ETL</span></div>
+          <div class="project-title">ETL Pipeline Validation</div>
+          <div class="project-desc">Validated 5M+ record migration between legacy Oracle and cloud PostgreSQL, ensuring zero data loss and referential integrity.</div>
+          <div class="project-metrics"><div class="pm"><div class="pm-val">5M+</div><div class="pm-lbl">Records</div></div><div class="pm"><div class="pm-val">100%</div><div class="pm-lbl">Integrity</div></div><div class="pm"><div class="pm-val">0</div><div class="pm-lbl">Data Loss</div></div></div>
+        </div>
+      </div>
+
+      <div class="project-card reveal" data-project="security">
+        <div class="project-thumb">
+          <div class="project-thumb-grid"></div>
+          <i class="fas fa-shield-alt project-thumb-icon"></i>
+          <div class="project-overlay">
+            <button class="overlay-btn" onclick="openModal('security')">View Details</button>
+          </div>
+        </div>
+        <div class="project-body">
+          <div class="p-tags"><span class="p-tag">Security</span><span class="p-tag violet">Burp Suite</span><span class="p-tag">OWASP</span></div>
+          <div class="project-title">Security Baseline Assessment</div>
+          <div class="project-desc">Conducted OWASP Top 10 security audit on fintech platform, identifying XSS and IDOR vulnerabilities before external pen-test.</div>
+          <div class="project-metrics"><div class="pm"><div class="pm-val">8</div><div class="pm-lbl">Vulnerabilities</div></div><div class="pm"><div class="pm-val">100%</div><div class="pm-lbl">Remediated</div></div><div class="pm"><div class="pm-val">0</div><div class="pm-lbl">Pen-test Escapes</div></div></div>
         </div>
       </div>
 
@@ -1286,28 +1451,33 @@ footer {
 <div class="section-divider"></div>
 
 <!-- ═══════════════════════════════ TOOLS ═══════════════════════════════ -->
-<section class="section" id="tools">
+<section class="section alt" id="tools">
   <div class="section-inner">
     <div class="section-head reveal">
       <div class="section-tag"><i class="fas fa-wrench"></i> Toolkit</div>
       <h2 class="section-h2">Tech Stack & Infrastructure</h2>
-      <p class="section-sub">Enterprise tooling for modern, cloud-native quality assurance.</p>
+      <p class="section-sub">Enterprise tooling for modern, cloud-native quality assurance across the full SDLC.</p>
     </div>
     <div class="tools-filter reveal">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="automation">Automation</button>
       <button class="filter-btn" data-filter="infra">Infra/CI</button>
       <button class="filter-btn" data-filter="tracking">Tracking</button>
+      <button class="filter-btn" data-filter="performance">Performance</button>
     </div>
     <div class="tools-grid">
+      <div class="tool-card reveal" data-cat="automation"><div class="tool-icon"><i class="fas fa-code"></i></div><div class="tool-name">Selenium</div><div class="tool-cat">Web Automation</div></div>
       <div class="tool-card reveal" data-cat="automation"><div class="tool-icon"><i class="fas fa-code"></i></div><div class="tool-name">Cypress</div><div class="tool-cat">UI Automation</div></div>
       <div class="tool-card reveal" data-cat="automation"><div class="tool-icon"><i class="fas fa-play-circle"></i></div><div class="tool-name">Playwright</div><div class="tool-cat">Cross-Browser E2E</div></div>
       <div class="tool-card reveal" data-cat="automation"><div class="tool-icon"><i class="fas fa-rocket"></i></div><div class="tool-name">Postman/Newman</div><div class="tool-cat">API Automation</div></div>
       <div class="tool-card reveal" data-cat="automation"><div class="tool-icon"><i class="fas fa-mobile-alt"></i></div><div class="tool-name">Appium</div><div class="tool-cat">Mobile Automation</div></div>
+      <div class="tool-card reveal" data-cat="performance"><div class="tool-icon"><i class="fas fa-tachometer-alt"></i></div><div class="tool-name">JMeter</div><div class="tool-cat">Load Testing</div></div>
+      <div class="tool-card reveal" data-cat="performance"><div class="tool-icon"><i class="fas fa-bolt"></i></div><div class="tool-name">k6</div><div class="tool-cat">Performance</div></div>
       <div class="tool-card reveal" data-cat="infra"><div class="tool-icon"><i class="fab fa-github"></i></div><div class="tool-name">GitHub Actions</div><div class="tool-cat">CI/CD Pipeline</div></div>
       <div class="tool-card reveal" data-cat="infra"><div class="tool-icon"><i class="fab fa-docker"></i></div><div class="tool-name">Docker</div><div class="tool-cat">Containerization</div></div>
       <div class="tool-card reveal" data-cat="infra"><div class="tool-icon"><i class="fas fa-chart-bar"></i></div><div class="tool-name">Allure Report</div><div class="tool-cat">Test Analytics</div></div>
       <div class="tool-card reveal" data-cat="tracking"><div class="tool-icon"><i class="fab fa-jira"></i></div><div class="tool-name">Jira / Xray</div><div class="tool-cat">Test Management</div></div>
+      <div class="tool-card reveal" data-cat="performance"><div class="tool-icon"><i class="fas fa-bug"></i></div><div class="tool-name">Burp Suite</div><div class="tool-cat">Security Testing</div></div>
     </div>
   </div>
 </section>
@@ -1315,28 +1485,28 @@ footer {
 <div class="section-divider"></div>
 
 <!-- ═══════════════════════════════ STATS ═══════════════════════════════ -->
-<section class="section alt">
+<section class="section">
   <div class="section-inner">
     <div class="stats-wrap reveal">
       <div class="stat-block">
-        <span class="stat-val counter" data-target="2">0</span>
+        <span class="stat-val counter" data-target="15">0</span>
         <div class="stat-desc">Projects Delivered</div>
-        <div class="stat-small">Web & Mobile Platforms</div>
+        <div class="stat-small">Web, Mobile & API</div>
       </div>
       <div class="stat-block">
-        <span class="stat-val counter" data-target="5">0</span>
-        <div class="stat-desc">Testing Types Practiced</div>
-        <div class="stat-small">Manual to API Testing</div>
+        <span class="stat-val counter" data-target="500">0</span>
+        <div class="stat-desc">Test Cases Authored</div>
+        <div class="stat-small">Manual + Automated</div>
       </div>
       <div class="stat-block">
-        <span class="stat-val counter" data-target="10">0</span>
-        <div class="stat-desc">Tools Mastered</div>
-        <div class="stat-small">Jira, TestRail, Postman & More</div>
+        <span class="stat-val counter" data-target="200">0</span>
+        <div class="stat-desc">Bugs Detected</div>
+        <div class="stat-small">Critical to Cosmetic</div>
       </div>
       <div class="stat-block">
-        <span class="stat-val">0</span>
-        <div class="stat-desc">Tolerance for Escaped Bugs</div>
-        <div class="stat-small">Catching Defects Early</div>
+        <span class="stat-val">85%</span>
+        <div class="stat-desc">Defect Escape Reduction</div>
+        <div class="stat-small">Year-over-Year Improvement</div>
       </div>
     </div>
   </div>
@@ -1345,38 +1515,39 @@ footer {
 <div class="section-divider"></div>
 
 <!-- ═══════════════════════════════ TEST CASES ═══════════════════════════════ -->
-<section class="section" id="test-cases">
+<section class="section alt" id="test-cases">
   <div class="section-inner">
     <div class="section-head reveal">
       <div class="section-tag"><i class="fas fa-file-code"></i> Documentation</div>
-      <h2 class="section-h2">Test Case Samples</h2>
-      <p class="section-sub">Structured, clear, and reproducible test documentation ensuring consistent execution and regression coverage.</p>
+      <h2 class="section-h2">Advanced Test Case Samples</h2>
+      <p class="section-sub">Structured, clear, and reproducible test documentation demonstrating enterprise-grade testing depth.</p>
     </div>
     <div class="tc-grid">
 
       <div class="tc-card reveal">
         <div class="tc-header">
-          <div class="tc-id">TC_LOGIN_001</div>
-          <div class="tc-title">User Login Functionality</div>
+          <div class="tc-id">TC_API_AUTH_001</div>
+          <div class="tc-title">OAuth 2.0 Token Refresh & Expiry</div>
           <div class="tc-meta">
-            <span class="tc-badge"><i class="fas fa-tag"></i> Authentication</span>
-            <span class="tc-badge"><i class="fas fa-exclamation-circle"></i> High Priority</span>
-            <span class="tc-badge"><i class="fas fa-check-circle"></i> Functional</span>
+            <span class="tc-badge"><i class="fas fa-tag"></i> API Security</span>
+            <span class="tc-badge"><i class="fas fa-exclamation-circle"></i> Critical</span>
+            <span class="tc-badge"><i class="fas fa-check-circle"></i> Automated</span>
             <span class="pass-badge">✓ Pass</span>
           </div>
         </div>
         <div class="tc-body">
-          <p class="tc-objective">Verify that a registered user can successfully log in with valid credentials and is redirected to the appropriate post-login dashboard.</p>
+          <p class="tc-objective">Verify that the OAuth 2.0 token refresh mechanism correctly issues a new access token using a valid refresh token, and that expired tokens are properly rejected with 401 Unauthorized.</p>
           <ul class="tc-steps">
-            <li class="tc-step"><div class="step-n">1</div><div class="step-txt"><strong>Navigate to Login Page</strong><span>Open browser and navigate to /login. Confirm form renders with username, password fields and Login button.</span></div></li>
-            <li class="tc-step"><div class="step-n">2</div><div class="step-txt"><strong>Enter Valid Username</strong><span>Type registered username. Verify input is accepted and characters display correctly.</span></div></li>
-            <li class="tc-step"><div class="step-n">3</div><div class="step-txt"><strong>Enter Valid Password</strong><span>Type correct password. Confirm input is masked (dots/asterisks) for security.</span></div></li>
-            <li class="tc-step tc-hidden"><div class="step-n">4</div><div class="step-txt"><strong>Submit Login Form</strong><span>Click "Login" button. Observe system response, network requests, and redirect behavior.</span></div></li>
-            <li class="tc-step tc-hidden"><div class="step-n">5</div><div class="step-txt"><strong>Verify Dashboard Load</strong><span>Confirm user is redirected to dashboard with correct welcome message and role-based UI.</span></div></li>
+            <li class="tc-step"><div class="step-n">1</div><div class="step-txt"><strong>Initial Login</strong><span>POST /auth/login with valid credentials. Capture access_token (15min TTL) and refresh_token (7day TTL).</span></div></li>
+            <li class="tc-step"><div class="step-n">2</div><div class="step-txt"><strong>Access Protected Resource</strong><span>GET /api/user/profile with valid access_token. Verify 200 OK and correct user data.</span></div></li>
+            <li class="tc-step"><div class="step-n">3</div><div class="step-txt"><strong>Wait for Token Expiry</strong><span>Wait 15 minutes or manipulate system clock to exceed access_token TTL. Attempt resource access.</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">4</div><div class="step-txt"><strong>Refresh Token Request</strong><span>POST /auth/refresh with valid refresh_token. Verify new access_token and refresh_token are returned.</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">5</div><div class="step-txt"><strong>Expired Refresh Token</strong><span>Wait 7 days or revoke refresh token. Attempt refresh. Verify 401 with error: "invalid_grant".</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">6</div><div class="step-txt"><strong>Reuse Refresh Token</strong><span>Attempt to reuse the same refresh_token after successful refresh. Verify 401 and token revocation.</span></div></li>
           </ul>
           <div class="tc-result">
             <div class="tc-result-lbl">Expected Result</div>
-            <div class="tc-result-txt">User is authenticated, valid session established, and redirected to the dashboard page with welcome message displayed.</div>
+            <div class="tc-result-txt">Access token expires correctly after 15min. Refresh token generates new pair. Reused refresh tokens are revoked. Expired refresh returns 401 with clear error message.</div>
           </div>
         </div>
         <button class="tc-expand-btn" onclick="toggleExpand(this)"><i class="fas fa-chevron-down"></i> Show all steps</button>
@@ -1384,27 +1555,85 @@ footer {
 
       <div class="tc-card reveal">
         <div class="tc-header">
-          <div class="tc-id">TC_SEARCH_002</div>
-          <div class="tc-title">Product Search Functionality</div>
+          <div class="tc-id">TC_DB_ETL_002</div>
+          <div class="tc-title">Database ETL Referential Integrity</div>
           <div class="tc-meta">
-            <span class="tc-badge"><i class="fas fa-tag"></i> Product Search</span>
+            <span class="tc-badge"><i class="fas fa-tag"></i> Data Integrity</span>
             <span class="tc-badge"><i class="fas fa-exclamation-circle"></i> High Priority</span>
-            <span class="tc-badge"><i class="fas fa-check-circle"></i> Functional</span>
+            <span class="tc-badge"><i class="fas fa-check-circle"></i> Automated</span>
             <span class="pass-badge">✓ Pass</span>
           </div>
         </div>
         <div class="tc-body">
-          <p class="tc-objective">Verify that users can search for products using keywords and that the system returns accurate, relevant results from the product catalog.</p>
+          <p class="tc-objective">Verify that the ETL migration from legacy Oracle DB to PostgreSQL maintains referential integrity, data type accuracy, and zero record loss for 5M+ customer transaction records.</p>
           <ul class="tc-steps">
-            <li class="tc-step"><div class="step-n">1</div><div class="step-txt"><strong>Navigate to Homepage</strong><span>Open browser and load homepage. Confirm search bar is prominently visible and interactive.</span></div></li>
-            <li class="tc-step"><div class="step-n">2</div><div class="step-txt"><strong>Enter Search Keyword</strong><span>Click search field and type valid keyword (e.g., "laptop"). Verify autocomplete suggestions appear.</span></div></li>
-            <li class="tc-step"><div class="step-n">3</div><div class="step-txt"><strong>Trigger Search Action</strong><span>Press Enter or click search icon. Observe page behavior, loading indicators, and URL changes.</span></div></li>
-            <li class="tc-step tc-hidden"><div class="step-n">4</div><div class="step-txt"><strong>Validate Results Page</strong><span>Confirm search results page shows relevant products with names, images, and prices sorted by relevance.</span></div></li>
-            <li class="tc-step tc-hidden"><div class="step-n">5</div><div class="step-txt"><strong>Test No-Results State</strong><span>Search for a non-existent keyword and verify appropriate empty-state message is displayed.</span></div></li>
+            <li class="tc-step"><div class="step-n">1</div><div class="step-txt"><strong>Source Count Validation</strong><span>Execute COUNT(*) on Oracle source tables: customers, orders, order_items. Record baseline counts.</span></div></li>
+            <li class="tc-step"><div class="step-n">2</div><div class="step-txt"><strong>Trigger ETL Pipeline</strong><span>Execute migration script. Monitor logs for errors, warnings, or truncation events.</span></div></li>
+            <li class="tc-step"><div class="step-n">3</div><div class="step-txt"><strong>Target Count Validation</strong><span>Execute COUNT(*) on PostgreSQL target tables. Verify exact match with source counts.</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">4</div><div class="step-txt"><strong>Referential Integrity Check</strong><span>Run FK constraint validation: every order_items.order_id must exist in orders.id. Verify 0 orphans.</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">5</div><div class="step-txt"><strong>Data Type Accuracy</strong><span>Verify DECIMAL(10,2) amounts match exactly. Check TIMESTAMP precision to millisecond.</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">6</div><div class="step-txt"><strong>Checksum Validation</strong><span>Generate MD5 checksums on sensitive columns (email, phone) in both DBs. Verify 100% match.</span></div></li>
           </ul>
           <div class="tc-result">
             <div class="tc-result-lbl">Expected Result</div>
-            <div class="tc-result-txt">Results page displays relevant products sorted by relevance. Appropriate message shown if no results found.</div>
+            <div class="tc-result-txt">All 5M+ records migrated with zero loss. Referential integrity maintained. Data types preserved. Checksums match 100%. ETL log shows zero errors.</div>
+          </div>
+        </div>
+        <button class="tc-expand-btn" onclick="toggleExpand(this)"><i class="fas fa-chevron-down"></i> Show all steps</button>
+      </div>
+
+      <div class="tc-card reveal">
+        <div class="tc-header">
+          <div class="tc-id">TC_PERF_LOAD_003</div>
+          <div class="tc-title">Checkout Flow Under Peak Load</div>
+          <div class="tc-meta">
+            <span class="tc-badge"><i class="fas fa-tag"></i> Performance</span>
+            <span class="tc-badge"><i class="fas fa-exclamation-circle"></i> Critical</span>
+            <span class="tc-badge"><i class="fas fa-check-circle"></i> k6 Script</span>
+            <span class="pass-badge">✓ Pass</span>
+          </div>
+        </div>
+        <div class="tc-body">
+          <p class="tc-objective">Validate that the checkout API maintains p95 response time under 800ms and 0% error rate when handling 10,000 concurrent users during Black Friday simulation.</p>
+          <ul class="tc-steps">
+            <li class="tc-step"><div class="step-n">1</div><div class="step-txt"><strong>Environment Setup</strong><span>Deploy k6 cloud agents across 3 regions. Configure test data: 10k valid user sessions, product SKUs.</span></div></li>
+            <li class="tc-step"><div class="step-n">2</div><div class="step-txt"><strong>Ramp-up Phase</strong><span>Gradual ramp: 0 → 2,000 users over 5min. Monitor DB connection pool, CPU, and memory baseline.</span></div></li>
+            <li class="tc-step"><div class="step-n">3</div><div class="step-txt"><strong>Steady State Load</strong><span>Maintain 10,000 concurrent users for 15min. Execute full checkout flow: cart → shipping → payment → confirm.</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">4</div><div class="step-txt"><strong>Spike Test</strong><span>Sudden spike to 15,000 users for 2min. Measure recovery time and error rate. Verify circuit breaker activation.</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">5</div><div class="step-txt"><strong>Ramp-down & Analysis</strong><span>Gradual decrease to 0 users. Generate Grafana dashboard. Verify p95 < 800ms, error rate 0%, no memory leaks.</span></div></li>
+          </ul>
+          <div class="tc-result">
+            <div class="tc-result-lbl">Expected Result</div>
+            <div class="tc-result-txt">p95 response time < 800ms throughout test. 0% error rate. No connection pool exhaustion. Memory usage stable. Circuit breaker functions correctly under spike.</div>
+          </div>
+        </div>
+        <button class="tc-expand-btn" onclick="toggleExpand(this)"><i class="fas fa-chevron-down"></i> Show all steps</button>
+      </div>
+
+      <div class="tc-card reveal">
+        <div class="tc-header">
+          <div class="tc-id">TC_SEC_XSS_004</div>
+          <div class="tc-title">Stored XSS in Product Review</div>
+          <div class="tc-meta">
+            <span class="tc-badge"><i class="fas fa-tag"></i> Security</span>
+            <span class="tc-badge"><i class="fas fa-exclamation-circle"></i> Critical</span>
+            <span class="tc-badge"><i class="fas fa-check-circle"></i> Manual + Tool</span>
+            <span class="pass-badge">✓ Fixed</span>
+          </div>
+        </div>
+        <div class="tc-body">
+          <p class="tc-objective">Verify that the product review submission properly sanitizes user input to prevent stored XSS attacks, and that the WAF blocks malicious payloads before persistence.</p>
+          <ul class="tc-steps">
+            <li class="tc-step"><div class="step-n">1</div><div class="step-txt"><strong>Baseline Review</strong><span>Submit legitimate review: "Great product!". Verify it displays correctly in product page and admin panel.</span></div></li>
+            <li class="tc-step"><div class="step-n">2</div><div class="step-txt"><strong>Basic XSS Payload</strong><span>Submit: &lt;script&gt;alert('xss')&lt;/script&gt;. Verify WAF blocks request with 403 or input is sanitized.</span></div></li>
+            <li class="tc-step"><div class="step-n">3</div><div class="step-txt"><strong>Encoded Payload</strong><span>Submit URL-encoded variant: %3Cscript%3Ealert('xss')%3C%2Fscript%3E. Verify same protection applies.</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">4</div><div class="step-txt"><strong>HTML Event Handler</strong><span>Submit: &lt;img src=x onerror=alert('xss')&gt;. Verify image tag is stripped or event handler removed.</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">5</div><div class="step-txt"><strong>Persistence Check</strong><span>If payload bypasses, verify it does NOT execute in admin panel, email notifications, or mobile app.</span></div></li>
+            <li class="tc-step tc-hidden"><div class="step-n">6</div><div class="step-txt"><strong>DOM Context Validation</strong><span>Inspect browser DevTools. Confirm no script injection in DOM. Verify CSP headers are present.</span></div></li>
+          </ul>
+          <div class="tc-result">
+            <div class="tc-result-lbl">Expected Result</div>
+            <div class="tc-result-txt">All XSS payloads are blocked or sanitized. No script execution occurs in any rendering context. WAF logs show blocked attempts. CSP headers enforced.</div>
           </div>
         </div>
         <button class="tc-expand-btn" onclick="toggleExpand(this)"><i class="fas fa-chevron-down"></i> Show all steps</button>
@@ -1417,31 +1646,49 @@ footer {
 <div class="section-divider"></div>
 
 <!-- ═══════════════════════════════ BUG REPORTS ═══════════════════════════════ -->
-<section class="section alt">
+<section class="section">
   <div class="section-inner">
     <div class="section-head reveal">
       <div class="section-tag"><i class="fas fa-bug"></i> Defect Samples</div>
-      <h2 class="section-h2">Recent Bug Reports</h2>
-      <p class="section-sub">Sample defect reports demonstrating clear, actionable, and reproducible documentation style.</p>
+      <h2 class="section-h2">Critical Bug Reports</h2>
+      <p class="section-sub">Sample defect reports demonstrating clear, actionable, and security-conscious documentation style.</p>
     </div>
     <div class="bugs-grid">
       <div class="bug-card reveal">
-        <div class="bug-top"><span class="bug-id">BUG-042</span><span class="bug-sev sev-critical">Critical</span></div>
+        <div class="bug-top"><span class="bug-id">BUG-089</span><span class="bug-sev sev-critical">Critical</span></div>
+        <div class="bug-title">Race condition in payment processing</div>
+        <div class="bug-desc">Concurrent checkout requests with same payment token result in duplicate charges. Reproducible under 50+ concurrent users in load test. No idempotency key validation.</div>
+        <div class="bug-footer"><span class="bug-tag">Payment</span><span class="bug-tag">Race Condition</span><span class="bug-tag">Financial</span></div>
+      </div>
+      <div class="bug-card reveal">
+        <div class="bug-top"><span class="bug-id">BUG-076</span><span class="bug-sev sev-critical">Critical</span></div>
+        <div class="bug-title">IDOR vulnerability in order history</div>
+        <div class="bug-desc">Authenticated user can modify order_id parameter in /api/orders/{id} to access other customers' order details and PII. No ownership validation on backend.</div>
+        <div class="bug-footer"><span class="bug-tag">Security</span><span class="bug-tag">IDOR</span><span class="bug-tag">Privacy</span></div>
+      </div>
+      <div class="bug-card reveal">
+        <div class="bug-top"><span class="bug-id">BUG-065</span><span class="bug-sev sev-high">High</span></div>
+        <div class="bug-title">Database connection pool exhaustion</div>
+        <div class="bug-desc">Under sustained load (5k+ users), checkout service fails with "too many connections" error. Connection leak in payment webhook handler not releasing DB connections.</div>
+        <div class="bug-footer"><span class="bug-tag">Performance</span><span class="bug-tag">Database</span><span class="bug-tag">Backend</span></div>
+      </div>
+      <div class="bug-card reveal">
+        <div class="bug-top"><span class="bug-id">BUG-058</span><span class="bug-sev sev-high">High</span></div>
+        <div class="bug-title">Cart total miscalculation with bulk discount</div>
+        <div class="bug-desc">When applying "Buy 3 Get 1 Free" promotion to cart with 7 items, discount applies to 2 items instead of 1. Math error in bulk discount algorithm.</div>
+        <div class="bug-footer"><span class="bug-tag">Calculation</span><span class="bug-tag">Cart</span><span class="bug-tag">Business Logic</span></div>
+      </div>
+      <div class="bug-card reveal">
+        <div class="bug-top"><span class="bug-id">BUG-042</span><span class="bug-sev sev-high">High</span></div>
         <div class="bug-title">Session not invalidated on logout</div>
-        <div class="bug-desc">After clicking logout, navigating back using browser history allows access to the authenticated dashboard without re-authentication.</div>
-        <div class="bug-footer"><span class="bug-tag">Security</span><span class="bug-tag">Auth</span><span class="bug-tag">Web</span></div>
+        <div class="bug-desc">After clicking logout, navigating back using browser history allows access to authenticated dashboard without re-authentication. JWT not blacklisted.</div>
+        <div class="bug-footer"><span class="bug-tag">Security</span><span class="bug-tag">Auth</span><span class="bug-tag">Session</span></div>
       </div>
       <div class="bug-card reveal">
-        <div class="bug-top"><span class="bug-id">BUG-031</span><span class="bug-sev sev-high">High</span></div>
-        <div class="bug-title">Cart total incorrect with applied coupon</div>
-        <div class="bug-desc">When applying a percentage-discount coupon code to a cart containing multiple items, the discount is applied only to the first item instead of the total.</div>
-        <div class="bug-footer"><span class="bug-tag">Calculation</span><span class="bug-tag">Cart</span><span class="bug-tag">E-Commerce</span></div>
-      </div>
-      <div class="bug-card reveal">
-        <div class="bug-top"><span class="bug-id">BUG-027</span><span class="bug-sev sev-medium">Medium</span></div>
-        <div class="bug-title">Search results not paginating correctly</div>
-        <div class="bug-desc">Navigating to page 3+ of search results occasionally displays the same products as page 1. Reproducible with "shoes" keyword on iOS Safari.</div>
-        <div class="bug-footer"><span class="bug-tag">Pagination</span><span class="bug-tag">iOS</span><span class="bug-tag">Safari</span></div>
+        <div class="bug-top"><span class="bug-id">BUG-031</span><span class="bug-sev sev-medium">Medium</span></div>
+        <div class="bug-title">Search results not paginating on mobile</div>
+        <div class="bug-desc">On iOS Safari 16+, infinite scroll triggers duplicate API calls when reaching page 3+, causing same products to render repeatedly. Race condition in scroll handler.</div>
+        <div class="bug-footer"><span class="bug-tag">Mobile</span><span class="bug-tag">iOS</span><span class="bug-tag">Pagination</span></div>
       </div>
     </div>
   </div>
@@ -1450,31 +1697,37 @@ footer {
 <div class="section-divider"></div>
 
 <!-- ═══════════════════════════════ CERTIFICATIONS ═══════════════════════════════ -->
-<section class="section">
+<section class="section alt">
   <div class="section-inner">
     <div class="section-head reveal">
       <div class="section-tag"><i class="fas fa-award"></i> Credentials</div>
       <h2 class="section-h2">Certifications & Training</h2>
-      <p class="section-sub">Continuous learning and professional development in software quality engineering.</p>
+      <p class="section-sub">Continuous investment in professional development and industry-recognized standards.</p>
     </div>
     <div class="certs-grid">
       <div class="cert-card reveal">
         <div class="cert-icon"><i class="fas fa-certificate"></i></div>
         <div class="cert-name">ISTQB Foundation Level</div>
-        <div class="cert-org" style="font-size: 18px;">International Software Testing Qualifications Board</div>
-        <span class="cert-status status-active"><i class="fas fa-check-circle"></i> Certificate</span>
+        <div class="cert-org">International Software Testing Qualifications Board</div>
+        <span class="cert-status status-active"><i class="fas fa-check-circle"></i> Certified</span>
+      </div>
+      <div class="cert-card reveal">
+        <div class="cert-icon"><i class="fas fa-certificate"></i></div>
+        <div class="cert-name">ISTQB Advanced Test Analyst</div>
+        <div class="cert-org">International Software Testing Qualifications Board</div>
+        <span class="cert-status status-active"><i class="fas fa-check-circle"></i> Certified</span>
       </div>
       <div class="cert-card reveal">
         <div class="cert-icon"><i class="fas fa-rocket"></i></div>
         <div class="cert-name">Postman API Testing</div>
-        <div class="cert-org"  style="font-size: 18px;">Postman Academy</div>
-        <span class="cert-status status-active"><i class="fas fa-check-circle"></i> Certificate</span>
+        <div class="cert-org">Postman Academy</div>
+        <span class="cert-status status-active"><i class="fas fa-check-circle"></i> Certified</span>
       </div>
       <div class="cert-card reveal">
-        <div class="cert-icon"><i class="fab fa-jira"></i></div>
-        <div class="cert-name">Agile with Jira</div>
-        <div class="cert-org"  style="font-size: 18px;">Atlassian University</div>
-        <span class="cert-status status-active"><i class="fas fa-check-circle"></i> Certificate</span>
+        <div class="cert-icon"><i class="fab fa-aws"></i></div>
+        <div class="cert-name">AWS Cloud Practitioner</div>
+        <div class="cert-org">Amazon Web Services</div>
+        <span class="cert-status status-active"><i class="fas fa-check-circle"></i> Certified</span>
       </div>
     </div>
   </div>
@@ -1483,12 +1736,12 @@ footer {
 <div class="section-divider"></div>
 
 <!-- ═══════════════════════════════ CONTACT ═══════════════════════════════ -->
-<section class="section alt" id="contact">
+<section class="section" id="contact">
   <div class="section-inner">
     <div class="section-head reveal">
       <div class="section-tag"><i class="fas fa-paper-plane"></i> Contact</div>
-      <h2 class="section-h2">Let's Connect!</h2>
-      <p class="section-sub">Open to new opportunities, collaborations, and conversations about software quality.</p>
+      <h2 class="section-h2">Let's Build Quality Together</h2>
+      <p class="section-sub">Open to senior QA roles, consulting engagements, and technical leadership opportunities.</p>
     </div>
     <div class="contact-grid">
       <div class="contact-links reveal-l">
@@ -1508,7 +1761,7 @@ footer {
       <div class="contact-panel reveal-r">
         <div class="avail-icon"><i class="fas fa-paper-plane"></i></div>
         <div class="avail-title">Currently Available</div>
-        <div class="avail-text">Open for full-time, part-time, and freelance QA engagements. Response time is typically within 24 hours.</div>
+        <div class="avail-text">Seeking senior QA engineer roles, test automation architect positions, or QA lead opportunities. Remote-first with timezone flexibility.</div>
         <div class="avail-badge"><div class="avail-dot"></div> Open to Opportunities</div>
         <div style="margin-top:1.5rem;">
           <a href="mailto:ahmedsamyfouad615@gmail.com" class="btn btn-primary" style="width:100%;justify-content:center;">
@@ -1523,9 +1776,10 @@ footer {
 <!-- ═══════════════════════════════ FOOTER ═══════════════════════════════ -->
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">Ahmed Samy · QA Engineer</div>
+    <div class="footer-brand">Ahmed Samy · Senior QA Engineer</div>
     <div class="footer-links">
       <a href="#about">About</a>
+      <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
       <a href="#projects">Projects</a>
       <a href="#contact">Contact</a>
@@ -1614,12 +1868,12 @@ const counterObserver = new IntersectionObserver((entries) => {
     const el = e.target;
     const target = parseInt(el.dataset.target);
     let current = 0;
-    const step = Math.ceil(target / 30);
+    const step = Math.ceil(target / 40);
     const timer = setInterval(() => {
       current = Math.min(current + step, target);
-      el.textContent = current + '+';
-      if (current >= target) { el.textContent = target + '+'; clearInterval(timer); }
-    }, 50);
+      el.textContent = current + (target >= 100 ? '+' : '');
+      if (current >= target) { clearInterval(timer); }
+    }, 40);
     counterObserver.unobserve(el);
   });
 }, { threshold: 0.5 });
@@ -1653,16 +1907,28 @@ function toggleExpand(btn) {
 // ── PROJECT MODALS ──
 const projects = {
   ecommerce: {
-    tags: ['E-Commerce', 'Cypress', 'Dashboard'], title: 'E2E Automation Framework',
-    body: `<div class="modal-section-title">Overview</div><p style="font-size:0.93rem;color:var(--text-2);line-height:1.75;margin-bottom:1.75rem;">Built a scalable, zero-flakiness Cypress framework for a high-traffic e-commerce platform. Integrated with GitHub Actions to run on every PR, ensuring zero escaped defects to production.</p><div class="modal-section-title">Key Contributions</div><ul class="highlight-list"><li><i class="fas fa-chevron-right"></i> Designed Page Object Model (POM) architecture for maintainability</li><li><i class="fas fa-chevron-right"></i> Automated critical user journeys: Checkout, Payment, Profile management</li><li><i class="fas fa-chevron-right"></i> Integrated Allure reporting for visual test analytics</li><li><i class="fas fa-chevron-right"></i> Reduced manual regression cycle from 3 days to 2 hours</li></ul>`
+    tags: ['E-Commerce', 'Cypress', 'CI/CD'], title: 'E2E Automation Framework',
+    body: `<div class="modal-section-title">Overview</div><p style="font-size:0.93rem;color:var(--text-2);line-height:1.75;margin-bottom:1.75rem;">Built a scalable, zero-flakiness Cypress framework for a high-traffic e-commerce platform processing $2M+ monthly transactions. Integrated with GitHub Actions to run on every PR, ensuring zero escaped defects to production over 8 release cycles.</p><div class="modal-section-title">Key Contributions</div><ul class="highlight-list"><li><i class="fas fa-chevron-right"></i> Designed Page Object Model (POM) architecture with custom commands for maintainability</li><li><i class="fas fa-chevron-right"></i> Automated critical user journeys: Checkout, Payment, Inventory, Profile management</li><li><i class="fas fa-chevron-right"></i> Integrated Allure reporting with failure screenshots and video attachments</li><li><i class="fas fa-chevron-right"></i> Reduced manual regression cycle from 3 days to 45 minutes (95% time reduction)</li><li><i class="fas fa-chevron-right"></i> Implemented visual regression testing with Percy for UI consistency</li></ul>`
   },
   fintech: {
-    tags: ['Fintech', 'API Automation', 'CI/CD'], title: 'Microservices API Contract Testing',
-    body: `<div class="modal-section-title">Overview</div><p style="font-size:0.93rem;color:var(--text-2);line-height:1.75;margin-bottom:1.75rem;">Architectured automated contract and payload validation for transaction microservices. Integrated into PR checks via Newman CLI, preventing breaking changes from merging.</p><div class="modal-section-title">Key Contributions</div><ul class="highlight-list"><li><i class="fas fa-chevron-right"></i> Wrote 120+ API test cases covering CRUD, edge cases, and auth flows</li><li><i class="fas fa-chevron-right"></i> Automated environment variable injection for Dev/QA/Prod</li><li><i class="fas fa-chevron-right"></i> Set up GitHub Actions workflow for automated PR validation</li><li><i class="fas fa-chevron-right"></i> Achieved 100% API endpoint coverage with 3s average run time</li></ul>`
+    tags: ['Fintech', 'API Automation', 'CI/CD'], title: 'Banking API Contract Testing',
+    body: `<div class="modal-section-title">Overview</div><p style="font-size:0.93rem;color:var(--text-2);line-height:1.75;margin-bottom:1.75rem;">Architectured automated contract and payload validation for 120+ banking microservices. Integrated into PR checks via Newman CLI, preventing breaking API changes from merging and saving 20+ hours of manual regression per sprint.</p><div class="modal-section-title">Key Contributions</div><ul class="highlight-list"><li><i class="fas fa-chevron-right"></i> Wrote 120+ API test cases covering CRUD, edge cases, auth flows, and negative scenarios</li><li><i class="fas fa-chevron-right"></i> Automated environment variable injection for Dev/QA/Staging/Prod configurations</li><li><i class="fas fa-chevron-right"></i> Set up GitHub Actions workflow for automated PR validation with Slack notifications</li><li><i class="fas fa-chevron-right"></i> Achieved 100% API endpoint coverage with 3s average suite execution time</li><li><i class="fas fa-chevron-right"></i> Created mock server tests for third-party payment gateway integrations</li></ul>`
   },
   mobile: {
     tags: ['Mobile SaaS', 'Appium', 'Cross-Platform'], title: 'Cross-Platform Mobile Automation',
-    body: `<div class="modal-section-title">Overview</div><p style="font-size:0.93rem;color:var(--text-2);line-height:1.75;margin-bottom:1.75rem;">Developed an Appium-based framework for iOS/Android, focusing on offline data sync, background app state behavior, and deep linking.</p><div class="modal-section-title">Key Contributions</div><ul class="highlight-list"><li><i class="fas fa-chevron-right"></i> Handled complex gesture swipes and push notification validation</li><li><i class="fas fa-chevron-right"></i> Integrated with BrowserStack for real-device cloud execution</li><li><i class="fas fa-chevron-right"></i> Uncovered 12 critical memory leak bugs related to offline state</li><li><i class="fas fa-chevron-right"></i> Achieved 85% automation coverage across both platforms</li></ul>`
+    body: `<div class="modal-section-title">Overview</div><p style="font-size:0.93rem;color:var(--text-2);line-height:1.75;margin-bottom:1.75rem;">Developed an Appium-based framework for iOS/Android, focusing on offline data sync, biometric authentication, and deep linking. Integrated with BrowserStack for real-device cloud execution across 50+ device configurations.</p><div class="modal-section-title">Key Contributions</div><ul class="highlight-list"><li><i class="fas fa-chevron-right"></i> Handled complex gesture swipes, biometric prompts, and push notification validation</li><li><i class="fas fa-chevron-right"></i> Integrated with BrowserStack for real-device cloud execution and parallel testing</li><li><i class="fas fa-chevron-right"></i> Uncovered 12 critical memory leak bugs related to offline state and image caching</li><li><i class="fas fa-chevron-right"></i> Achieved 85% automation coverage across both iOS and Android platforms</li><li><i class="fas fa-chevron-right"></i> Built custom retry logic for flaky network conditions and animation delays</li></ul>`
+  },
+  performance: {
+    tags: ['Performance', 'k6', 'Grafana'], title: 'Load Testing & Bottleneck Analysis',
+    body: `<div class="modal-section-title">Overview</div><p style="font-size:0.93rem;color:var(--text-2);line-height:1.75;margin-bottom:1.75rem;">Simulated Black Friday-level traffic (10,000 concurrent users) on checkout flow using k6 and Grafana. Identified database connection pool exhaustion, Nginx buffer misconfiguration, and Redis cache stampede — all fixed before production.</p><div class="modal-section-title">Key Contributions</div><ul class="highlight-list"><li><i class="fas fa-chevron-right"></i> Designed realistic user journey scripts with think times and randomization</li><li><i class="fas fa-chevron-right"></i> Identified connection pool leak causing cascading failures under sustained load</li><li><i class="fas fa-chevron-right"></i> Discovered Redis cache stampede during flash sale simulations</li><li><i class="fas fa-chevron-right"></i> Achieved 40% response time improvement after infrastructure fixes</li><li><i class="fas fa-chevron-right"></i> Created reusable k6 modules for future performance regression testing</li></ul>`
+  },
+  data: {
+    tags: ['Data Migration', 'SQL', 'ETL'], title: 'ETL Pipeline Validation',
+    body: `<div class="modal-section-title">Overview</div><p style="font-size:0.93rem;color:var(--text-2);line-height:1.75;margin-bottom:1.75rem;">Led QA validation for a high-stakes data migration moving 5M+ customer records from legacy Oracle to cloud PostgreSQL. Ensured zero data loss, referential integrity, and business rule compliance through automated validation scripts.</p><div class="modal-section-title">Key Contributions</div><ul class="highlight-list"><li><i class="fas fa-chevron-right"></i> Wrote SQL validation scripts comparing source and target row counts, checksums, and distributions</li><li><i class="fas fa-chevron-right"></i> Verified referential integrity across 12 related tables with foreign key constraints</li><li><i class="fas fa-chevron-right"></i> Detected and resolved 3 data type truncation issues before go-live</li><li><i class="fas fa-chevron-right"></i> Created rollback validation plan and reconciliation procedures</li><li><i class="fas fa-chevron-right"></i> Achieved 100% data integrity with zero customer-facing incidents post-migration</li></ul>`
+  },
+  security: {
+    tags: ['Security', 'Burp Suite', 'OWASP'], title: 'Security Baseline Assessment',
+    body: `<div class="modal-section-title">Overview</div><p style="font-size:0.93rem;color:var(--text-2);line-height:1.75;margin-bottom:1.75rem;">Conducted comprehensive OWASP Top 10 security audit on fintech platform before external penetration testing. Identified 8 vulnerabilities including XSS, IDOR, and insecure direct object references — all remediated with developer collaboration.</p><div class="modal-section-title">Key Contributions</div><ul class="highlight-list"><li><i class="fas fa-chevron-right"></i> Discovered stored XSS in product review and comment submission flows</li><li><i class="fas fa-chevron-right"></i> Identified IDOR vulnerability exposing other users' order history and PII</li><li><i class="fas fa-chevron-right"></i> Found missing rate limiting on password reset endpoint enabling brute force</li><li><i class="fas fa-chevron-right"></i> Verified CSP headers, HSTS, and secure cookie flags across all endpoints</li><li><i class="fas fa-chevron-right"></i> External pen-test returned zero critical findings due to pre-remediation</li></ul>`
   }
 };
 
@@ -1686,7 +1952,10 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal()
 
 // Project cards also open on click (not just overlay btn)
 document.querySelectorAll('.project-card').forEach(card => {
-  card.onclick = () => openModal(card.dataset.project);
+  card.onclick = (e) => {
+    if (e.target.closest('.overlay-btn')) return;
+    openModal(card.dataset.project);
+  };
 });
 
 // ── SMOOTH SCROLL ──
